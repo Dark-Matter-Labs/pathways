@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Next Futures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,350;0,9..144,500;0,9..144,600;1,9..144,450;1,9..144,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#efe7d8;
+    --paper-dim:#e3d8c0;
+    --ink:#221e19;
+    --ink-dim:#5b5348;
+    --ink-faint:#948c7c;
+    --rust:#ab5a3c;
+    --rust-soft:rgba(171,90,60,0.15);
+    --pine:#3c6a5e;
+    --pine-soft:rgba(60,106,94,0.14);
+    --line:rgba(34,30,25,0.16);
+    --line-strong:rgba(34,30,25,0.34);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{animation-duration:0.01ms !important;transition-duration:0.01ms !important;} }
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4',Georgia,serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;}
+  [hidden]{display:none!important;}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;margin:0;color:var(--ink);text-wrap:balance;}
+  em{font-style:italic;color:var(--pine);font-family:'Fraunces',serif;font-weight:500;}
+  p{margin:0;}
+  a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(171,90,60,0.4);}
+  a:hover{border-bottom-color:var(--rust);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--pine);outline-offset:3px;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:1120px;margin:0 auto;padding-inline:28px;}
+  .tabular{font-variant-numeric:tabular-nums;}
+
+  /* right-edge scroll label, desktop only */
+  .spine-label{
+    position:fixed;top:50%;right:14px;transform:translateY(-50%) rotate(180deg);
+    writing-mode:vertical-rl;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.16em;
+    color:var(--ink-faint);white-space:nowrap;z-index:5;pointer-events:none;
+  }
+  @media (max-width:900px){ .spine-label{display:none;} }
+  @media print{
+    .spine-label{display:none;}
+    .masthead{position:static;background:var(--paper);backdrop-filter:none;-webkit-backdrop-filter:none;}
+    a{border-bottom:none;}
+    section.essay, .diagrams, .close, footer{break-inside:avoid;}
+  }
+
+  /* ---- masthead ---- */
+  .masthead{position:sticky;top:0;z-index:50;background:rgba(239,231,216,0.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .masthead-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:16px;flex-wrap:wrap;}
+  .mast-left{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:var(--ink);}
+  .draft-tag{font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:var(--rust);border:1px solid rgba(171,90,60,0.45);padding:2px 8px;border-radius:2px;}
+  .mast-right{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);}
+  nav.subnav{display:flex;gap:18px;padding:10px 0 14px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;}
+  nav.subnav a{color:var(--ink-dim);border-bottom:1px solid transparent;}
+  nav.subnav a:hover{color:var(--ink);border-bottom-color:var(--ink-dim);}
+
+  /* ---- hero ---- */
+  .hero{padding-block:56px 0;position:relative;}
+  .hero-grid{display:grid;grid-template-columns:1fr 1px 1.15fr;gap:0;align-items:start;}
+  .hero-divider{background:var(--line-strong);align-self:stretch;}
+  .hero-left, .hero-right{padding:8px 44px;}
+  .hero-left{display:flex;flex-direction:column;gap:22px;}
+  .glyph-row{display:flex;align-items:flex-end;gap:14px;}
+  .glyph-plus{font-family:'Fraunces',serif;font-size:2.6rem;color:var(--rust);font-weight:500;line-height:1;padding-bottom:0.55rem;}
+  .glyph{font-family:'Fraunces',serif;font-size:6.4rem;font-weight:600;line-height:0.85;letter-spacing:-0.01em;color:var(--ink);}
+  .glyph .p{font-style:italic;font-weight:500;}
+  .legend{display:flex;gap:22px;flex-wrap:wrap;}
+  .legend-item{display:flex;align-items:baseline;gap:6px;}
+  .legend-item .k{font-family:'Fraunces',serif;font-size:1.1rem;font-style:italic;color:var(--rust);}
+  .legend-item .v{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.03em;color:var(--ink-faint);text-transform:lowercase;}
+  .hero-right h1{font-size:clamp(2rem,4.6vw,2.9rem);line-height:1.14;}
+  .hero-right .lede{margin-top:22px;font-family:'Source Serif 4',serif;font-size:1.08rem;color:var(--ink-dim);max-width:520px;}
+  .meta-block{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);}
+  .meta-block .role{font-family:'Source Serif 4',serif;font-size:1rem;color:var(--ink);}
+  .meta-block .org{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-faint);margin-top:4px;}
+  .hero-cta{margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.03em;text-transform:uppercase;}
+
+  /* ---- diagram strip ---- */
+  .diagrams{border-top:1px solid var(--line);margin-top:48px;}
+  .diagram-grid{display:grid;grid-template-columns:1fr 1px 1fr;}
+  .diagram-cell{padding:40px 44px 30px;}
+  .diagram-cell figcaption{margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-faint);}
+  .diagram-cell figure{margin:0;}
+  @media (max-width:820px){
+    .hero-grid, .diagram-grid{grid-template-columns:1fr;}
+    .hero-divider, .diagram-grid > div:nth-child(2){display:none;}
+    .diagram-grid .diagram-cell{border-top:1px solid var(--line);}
+    .diagram-grid .diagram-cell:first-child{border-top:none;}
+    .hero-left{border-bottom:1px solid var(--line);padding-bottom:36px;margin-bottom:8px;}
+  }
+
+  /* ---- essay sections ---- */
+  section.essay{border-top:1px solid var(--line);}
+  .essay-grid{display:grid;grid-template-columns:220px 1fr;gap:36px;padding-block:56px;}
+  .essay-margin{position:relative;}
+  .essay-num{font-family:'Fraunces',serif;font-size:2.6rem;font-weight:500;color:var(--rust);line-height:1;}
+  .essay-margin.pine .essay-num{color:var(--pine);}
+  .essay-tag{margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink-faint);max-width:160px;}
+  .essay-icon{margin-top:22px;color:var(--ink-faint);}
+  .essay-margin.pine .essay-icon{color:var(--pine);}
+  .essay-margin.rust .essay-icon{color:var(--rust);}
+  .essay-body{max-width:660px;}
+  .essay-body h2{font-size:1.5rem;margin-bottom:20px;}
+  .essay-body p{color:var(--ink-dim);margin-bottom:16px;}
+  .essay-body p:last-child{margin-bottom:0;}
+  .hl-rust{background:var(--rust-soft);padding:0 3px;color:var(--ink);}
+  .hl-pine{background:var(--pine-soft);padding:0 3px;color:var(--ink);}
+  @media (max-width:700px){ .essay-grid{grid-template-columns:1fr;} }
+
+  /* mechanism steps */
+  .steps{display:flex;flex-direction:column;gap:0;margin-top:24px;border-top:1px solid var(--line);}
+  .step{display:flex;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);}
+  .step .si{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--pine);flex:none;width:22px;padding-top:3px;}
+  .step .st{font-family:'Source Serif 4',serif;font-size:0.98rem;color:var(--ink-dim);}
+  .step .st b{color:var(--ink);font-weight:500;}
+
+  /* ledger / case studies */
+  .ledger{margin-top:8px;border-top:1px solid var(--line-strong);}
+  .lrow{display:grid;grid-template-columns:1.3fr 2fr auto;gap:24px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline;}
+  .lrow .place{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-faint);}
+  .lrow h3{font-size:1.08rem;margin-top:6px;font-weight:500;}
+  .lrow .desc{margin-top:8px;color:var(--ink-dim);font-size:0.94rem;max-width:340px;}
+  .lrow .figs{text-align:right;font-family:'IBM Plex Mono',monospace;white-space:nowrap;}
+  .lrow .figs .big{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;color:var(--ink);}
+  .lrow .figs .tag{display:block;margin-top:6px;font-size:10px;letter-spacing:0.05em;text-transform:uppercase;padding:3px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--ink-dim);}
+  .lrow .figs .tag.live{color:var(--pine);border-color:rgba(60,106,94,0.4);}
+  .lrow .figs .tag.wait{color:var(--rust);border-color:rgba(171,90,60,0.4);}
+  @media (max-width:700px){
+    .lrow{grid-template-columns:1fr;text-align:left;}
+    .lrow .figs{text-align:left;}
+  }
+  .btr-quote{margin-top:36px;padding:24px 28px;border-left:2px solid var(--pine);}
+  .btr-quote p{font-family:'Fraunces',serif;font-style:italic;font-size:1.08rem;color:var(--ink);line-height:1.5;}
+  .btr-quote .cite{margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-faint);}
+
+  /* sector stamps */
+  .stamps{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;}
+
+  /* indicative portfolio */
+  .portfolio-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:40px;}
+  .pf-col{border-top:2px solid var(--pine);padding-top:16px;}
+  .pf-col.indicative{border-top:2px dashed var(--line-strong);}
+  .pf-col h3{font-size:0.96rem;font-weight:500;margin-bottom:8px;}
+  .pf-tag{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.05em;text-transform:uppercase;color:var(--pine);margin-bottom:14px;}
+  .pf-col.indicative .pf-tag{color:var(--ink-faint);}
+  .pf-item{margin-bottom:13px;}
+  .pf-item:last-child{margin-bottom:0;}
+  .pf-item b{display:block;font-size:0.88rem;font-weight:500;color:var(--ink);margin-bottom:2px;}
+  .pf-item span{font-size:0.82rem;color:var(--ink-dim);line-height:1.45;}
+  @media (max-width:820px){ .portfolio-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:480px){ .portfolio-grid{grid-template-columns:1fr;} }
+  .stamp{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.03em;color:var(--ink-dim);border:1px solid var(--line-strong);padding:8px 14px;border-radius:2px;}
+
+  /* the proposition */
+  .equation{margin-top:30px;padding-block:26px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .eq-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px;}
+  .eq-row{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:'Fraunces',serif;}
+  .eq-row .n{font-size:2.4rem;font-weight:600;}
+  .eq-row .op{font-size:1.4rem;color:var(--ink-faint);}
+  .eq-row .result{color:var(--pine);}
+  .eq-sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.03em;text-transform:none;color:var(--ink-faint);margin-top:4px;}
+  .eq-note{margin-top:18px;color:var(--ink-dim);font-size:0.94rem;max-width:560px;}
+
+  /* pathway */
+  .pathway{display:flex;align-items:flex-start;margin-top:36px;position:relative;}
+  .pathway::before{content:"";position:absolute;top:9px;left:9px;right:9px;height:0;border-top:1px dashed var(--line-strong);}
+  .rung{flex:1;position:relative;padding-right:18px;}
+  .rung .dot{width:18px;height:18px;border-radius:50%;background:var(--paper);border:2px solid var(--pine);position:relative;z-index:1;margin-bottom:16px;}
+  .rung.future .dot{border-style:dashed;border-color:var(--ink-faint);}
+  .rung .tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--pine);margin-bottom:8px;}
+  .rung.future .tag{color:var(--ink-faint);}
+  .rung h3{font-size:1.02rem;margin-bottom:8px;font-weight:500;}
+  .rung p{font-size:0.9rem;color:var(--ink-dim);}
+  @media (max-width:760px){
+    .pathway{flex-direction:column;gap:28px;}
+    .pathway::before{display:none;}
+  }
+
+  /* why dm */
+  .proof-list{margin-top:24px;border-top:1px solid var(--line);}
+  .proof-item{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--line);}
+  .proof-item .pn{font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;color:var(--rust);flex:none;width:20px;padding-top:2px;}
+  .proof-item h3{font-size:1.02rem;font-weight:500;margin-bottom:8px;}
+  .proof-item p{font-size:0.95rem;color:var(--ink-dim);max-width:600px;}
+  .proof-take{margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.02em;color:var(--pine);}
+  @media (max-width:600px){ .proof-item{gap:12px;} }
+
+  /* close / colophon */
+  .close{border-top:1px solid var(--line);padding-block:64px;}
+  .close-grid{display:grid;grid-template-columns:1.3fr auto;gap:40px;align-items:start;}
+  .close h2{font-size:clamp(1.7rem,3.6vw,2.3rem);}
+  .close .body-text{margin-top:18px;color:var(--ink-dim);max-width:480px;}
+  .seal{border:1px solid var(--line-strong);padding:22px 26px;text-align:center;min-width:220px;}
+  .seal .mark{font-family:'Fraunces',serif;font-style:italic;font-size:1.5rem;color:var(--rust);}
+  .seal .mail{display:block;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:12px;}
+  .seal .site{display:block;margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-dim);border-bottom:none;}
+  @media (max-width:700px){ .close-grid{grid-template-columns:1fr;} .seal{justify-self:start;} }
+
+  footer{border-top:1px solid var(--line);padding-block:22px;}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-faint);}
+</style>
+</head>
+<body>
+
+<span class="spine-label mono">NEXT FUTURES &nbsp;·&nbsp; DARK MATTER LABS &nbsp;·&nbsp; CORE FUNDING PROPOSITION</span>
+
+<div class="masthead">
+  <div class="wrap">
+    <div class="masthead-row">
+      <div class="mast-left">[ Next&nbsp;Futures ] <span class="draft-tag">Working draft</span></div>
+      <div class="mast-right">Dark Matter Labs · Ten Years · Core Funding Proposition</div>
+    </div>
+    <nav class="subnav">
+      <a href="#gap">The Window</a>
+      <a href="#mechanism">Mechanism</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#ask">The Ask</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="glyph-row">
+          <span class="glyph-plus">+</span>
+          <span class="glyph mono" style="font-family:'Fraunces',serif;">N<span class="p">f</span></span>
+        </div>
+        <div class="legend">
+          <div class="legend-item"><span class="k">+</span><span class="v">catalytic</span></div>
+          <div class="legend-item"><span class="k">N</span><span class="v">next</span></div>
+          <div class="legend-item"><span class="k">f</span><span class="v">futures</span></div>
+        </div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-right">
+        <h1>The possibility closes<br>before the funding<br><em>arrives.</em></h1>
+        <p class="lede">At Dark Matter Labs, much of our seed work happens before there is an agreed programme, an established partnership or a committed budget — responding to a relationship, a political moment, an emerging crisis, an opportunity to intervene, within the timescale of that opening. Next Futures is capital that's already there for exactly that moment. We're inviting funders who already trust our judgement to hold it with us.</p>
+        <div class="meta-block">
+          <div class="role">Core proposition</div>
+          <div class="org">Dark Matter Labs</div>
+        </div>
+        <div class="hero-cta"><a href="#contact">Talk to us about co-funding →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="diagrams">
+    <div class="wrap">
+      <div class="diagram-grid">
+        <div class="diagram-cell" style="color:var(--rust);">
+          <figure>
+            <svg viewBox="0 0 420 190" role="img" aria-label="Several windows of opportunity converge on a narrow gate — most stall there, trailing off as dotted lines, because the money wasn't ready in time." style="width:100%;height:auto;">
+              <g fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M10,30 C120,30 150,80 210,88" opacity="0.85"/>
+                <path d="M10,65 C120,65 150,85 210,90" opacity="0.7"/>
+                <path d="M10,100 C120,100 150,95 210,94" opacity="0.85"/>
+                <path d="M10,135 C120,135 150,100 210,96" opacity="0.7"/>
+                <path d="M10,165 C120,165 150,105 210,98" opacity="0.55"/>
+              </g>
+              <g stroke="currentColor" stroke-width="2">
+                <line x1="222" y1="60" x2="222" y2="126"/>
+                <line x1="234" y1="60" x2="234" y2="126"/>
+              </g>
+              <g fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 4" opacity="0.6">
+                <path d="M234,92 C300,92 320,60 400,55"/>
+                <path d="M234,92 C300,92 330,120 405,130"/>
+              </g>
+              <g fill="currentColor">
+                <circle cx="10" cy="30" r="3"/><circle cx="10" cy="65" r="3"/><circle cx="10" cy="100" r="3"/><circle cx="10" cy="135" r="3"/><circle cx="10" cy="165" r="3"/>
+              </g>
+              <g fill="none" stroke="currentColor" stroke-width="1">
+                <circle cx="400" cy="55" r="3.5"/><circle cx="405" cy="130" r="3.5"/>
+              </g>
+            </svg>
+            <figcaption>Most windows close at the same point — waiting for money that isn't ready yet</figcaption>
+          </figure>
+        </div>
+        <div></div>
+        <div class="diagram-cell" style="color:var(--pine);">
+          <figure>
+            <svg viewBox="0 0 420 190" role="img" aria-label="Pre-committed capital sits ready at one node, then branches into several diverging lines, each ending in an open circle representing a window that got caught rather than missed." style="width:100%;height:auto;">
+              <g fill="none" stroke="currentColor" stroke-width="1.4">
+                <line x1="10" y1="95" x2="150" y2="95"/>
+              </g>
+              <circle cx="150" cy="95" r="4" fill="currentColor"/>
+              <g fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M150,95 C230,95 250,25 400,18"/>
+                <path d="M150,95 C230,95 260,60 405,55"/>
+                <path d="M150,95 C230,95 260,95 405,95"/>
+                <path d="M150,95 C230,95 260,130 405,140"/>
+                <path d="M150,95 C230,95 250,165 400,172"/>
+              </g>
+              <g fill="none" stroke="currentColor" stroke-width="1.3">
+                <circle cx="400" cy="18" r="4"/><circle cx="405" cy="55" r="4"/><circle cx="405" cy="95" r="4"/><circle cx="405" cy="140" r="4"/><circle cx="400" cy="172" r="4"/>
+              </g>
+              <circle cx="10" cy="95" r="3" fill="currentColor"/>
+            </svg>
+            <figcaption>Capital that's already cleared to move — ready the moment a window opens</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="essay" id="gap">
+  <div class="wrap">
+    <div class="essay-grid">
+      <div class="essay-margin rust">
+        <div class="essay-num mono">01</div>
+        <div class="essay-tag">[ Seed work ]</div>
+        <svg class="essay-icon" viewBox="0 0 72 24" width="64" height="22" role="img" aria-label="Two dashed lines meeting a gate mark">
+          <g fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 3">
+            <line x1="0" y1="8" x2="28" y2="8"/>
+            <line x1="0" y1="16" x2="28" y2="16"/>
+          </g>
+          <line x1="32" y1="4" x2="32" y2="20" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="38" y1="4" x2="38" y2="20" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="essay-body">
+        <h2>Work that exists before there's a budget for it.</h2>
+        <p>Dark Matter Labs is ten years into this work. Next Futures is what that decade has taught us about what actually needs funding, and how to spend money well enough to be trusted with the next relationship — distilled into a fund, not just a set of lessons.</p>
+        <p>Much of our seed work takes place before there is an agreed programme, an established partnership or a committed budget. This work creates the conditions through which a possible transformation becomes something people can recognise, organise around and resource. Three factors shape what that actually costs.</p>
+        <div class="steps">
+          <div class="step"><span class="si mono">i.</span><span class="st"><b>Speed</b> — a situation opens: a relationship, a political moment, an emerging crisis, an opportunity to intervene. Our capacity to act depends on having resources available within the timescale of that opening — <span class="hl-rust">a funding process that takes months can arrive after the possibility has closed</span>.</span></div>
+          <div class="step"><span class="si mono">ii.</span><span class="st"><b>Recognition</b> — recognising a challenge ourselves doesn't mean anyone else does yet. That shared recognition has to be built, through inquiry, conversation, evidence and relationships, before there's a budget to pay for it. Often it's this work that makes a budget conceivable at all.</span></div>
+          <div class="step"><span class="si mono">iii.</span><span class="st"><b>Alliance</b> — most of what we work on spans actors who each hold a different part of the authority, knowledge or resources required. An alliance has to be constructed before it can be funded — and each participant is often willing to commit only once others already have.</span></div>
+        </div>
+        <p>These three overlap, and seed work usually carries all of them at once. The economics are easy to underestimate: later-funded programmes inherit relationships, recognition and commitments whose production they may never fully pay for. Their apparent viability can depend on costs we've already absorbed — through <span class="hl-pine">small reserves, bridging support and sustained overwork</span>. That's the gap between doing this work and being resourced to do it, and it's what Next Futures exists to close.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="essay" id="mechanism">
+  <div class="wrap">
+    <div class="essay-grid">
+      <div class="essay-margin pine">
+        <div class="essay-num mono">02</div>
+        <div class="essay-tag">[ The mechanism ]</div>
+        <svg class="essay-icon" viewBox="0 0 72 24" width="64" height="22" role="img" aria-label="Four small nodes connected in sequence">
+          <g fill="none" stroke="currentColor" stroke-width="1">
+            <line x1="4" y1="12" x2="60" y2="12"/>
+          </g>
+          <g fill="currentColor">
+            <circle cx="4" cy="12" r="3"/><circle cx="22" cy="12" r="3"/><circle cx="40" cy="12" r="3"/><circle cx="60" cy="12" r="3.5"/>
+          </g>
+        </svg>
+      </div>
+      <div class="essay-body">
+        <h2>Capital built for exactly this shape of cost.</h2>
+        <p>A viable model for seed work needs capital that can be accessed quickly, sustained through the slow work of building shared recognition, and used to assemble commitments across people who don't yet have a reason to trust each other's follow-through. It also needs to accommodate inquiry that changes direction, or that never becomes a programme at all. Next Futures is DM's attempt at that model, seeded from our own core funding.</p>
+        <div class="steps">
+          <div class="step"><span class="si mono">i.</span><span class="st"><b>Lightweight application</b> — any DM team can flag an opening at the moment it appears. Enough to judge whether it's real, not to relitigate whether the work is worth doing.</span></div>
+          <div class="step"><span class="si mono">ii.</span><span class="st"><b>A fast judgment call</b> — two internal sponsors weigh one question, in days not months: can a modest, well-timed investment credibly get us through this opening before it closes.</span></div>
+          <div class="step"><span class="si mono">iii.</span><span class="st"><b>Catalytic investment</b> — typically £25,000, paid at DM's standard day rate, released the moment the opening is confirmed. Sometimes spent within weeks.</span></div>
+          <div class="step"><span class="si mono">iv.</span><span class="st"><b>A conversion window</b> — within roughly 12–18 months, the aim is a <span class="hl-pine">four-times multiplier</span> in follow-on partnership value: recognition and alliance-building turned into resourced work. Not every investment gets there — some are the inquiry that shows a direction isn't the right one, which is still work worth doing.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="essay" id="evidence">
+  <div class="wrap">
+    <div class="essay-grid">
+      <div class="essay-margin rust">
+        <div class="essay-num mono">03</div>
+        <div class="essay-tag">[ Windows, in motion ]</div>
+        <svg class="essay-icon" viewBox="0 0 72 24" width="64" height="22" role="img" aria-label="Three tally marks">
+          <g stroke="currentColor" stroke-width="1.5">
+            <line x1="10" y1="4" x2="10" y2="20"/>
+            <line x1="20" y1="4" x2="20" y2="20"/>
+            <line x1="30" y1="4" x2="30" y2="20"/>
+          </g>
+        </svg>
+      </div>
+      <div class="essay-body" style="max-width:100%;">
+        <h2>What happens when the money is already there</h2>
+        <p>Next Futures is young, so this is shared in the spirit it's meant: honestly, including the moves still in play — and including the places where DM moved in time and is now the one waiting on someone else's board cycle.</p>
+
+        <p style="margin-top:16px;">Five live applications are currently running through Next Futures — here's where each stands.</p>
+
+        <div class="ledger">
+          <div class="lrow">
+            <div>
+              <div class="place">Camden · Food Systems</div>
+              <h3>Camden Food Systems</h3>
+            </div>
+            <div class="desc">A £25,000 bridge unlocked further backing from XCO and Camden Council — the next stage is already in motion.</div>
+            <div class="figs">
+              <span class="big tabular">£25k → £65k</span>
+              <span class="tag live">2.6× so far · £5m bid in motion</span>
+            </div>
+          </div>
+          <div class="lrow">
+            <div>
+              <div class="place">Governance Systems</div>
+              <h3>Governing Together</h3>
+            </div>
+            <div class="desc">The window opened and the full £25,000 was committed within a month — time enough to turn it into a wave of applications that are now sitting with several foundations, waiting on board cycles that won't report back until Q1.</div>
+            <div class="figs">
+              <span class="big tabular">£25k · 1 mo</span>
+              <span class="tag wait">Waiting on their board cycles, not ours</span>
+            </div>
+          </div>
+          <div class="lrow">
+            <div>
+              <div class="place">Copenhagen</div>
+              <h3>Zero Materials</h3>
+            </div>
+            <div class="desc">The window opened for two funders at once. A Next Futures investment landed alongside DM's separate XCO allocation, deployed together the moment it opened rather than waiting for one source before the other.</div>
+            <div class="figs">
+              <span class="big tabular">£25k + £50k</span>
+              <span class="tag">Two vehicles, one moment</span>
+            </div>
+          </div>
+          <div class="lrow">
+            <div>
+              <div class="place">Live application</div>
+              <h3>RiskSense</h3>
+            </div>
+            <div class="desc">Approved and allocated — one of the current bridges running through Next Futures, still in motion.</div>
+            <div class="figs">
+              <span class="big tabular">£25k</span>
+              <span class="tag live">Live · allocated Apr 2026</span>
+            </div>
+          </div>
+          <div class="lrow">
+            <div>
+              <div class="place">Live application</div>
+              <h3>FreeHouse</h3>
+            </div>
+            <div class="desc">Approved and allocated — one of the current bridges running through Next Futures, still in motion.</div>
+            <div class="figs">
+              <span class="big tabular">£25k</span>
+              <span class="tag live">Live · allocated May 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="btr-quote">
+          <p>"It's this same instinct for continuity that underpins DM's longest relationships."</p>
+          <div class="cite">Beyond the Rules · continuously supported by Lankelly Chase for five years</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="essay" id="sectors">
+  <div class="wrap">
+    <div class="essay-grid">
+      <div class="essay-margin pine">
+        <div class="essay-num mono">04</div>
+        <div class="essay-tag">[ Where windows open ]</div>
+        <svg class="essay-icon" viewBox="0 0 72 24" width="64" height="22" role="img" aria-label="Four small circles in a row">
+          <g fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="8" cy="12" r="5"/><circle cx="26" cy="12" r="5"/><circle cx="44" cy="12" r="5"/><circle cx="62" cy="12" r="5"/>
+          </g>
+        </svg>
+      </div>
+      <div class="essay-body" style="max-width:100%;">
+        <h2>One fund watching for windows across every frontier DM works on</h2>
+        <div class="stamps">
+          <span class="stamp">Food systems</span>
+          <span class="stamp">Governance systems</span>
+          <span class="stamp">Built environment</span>
+          <span class="stamp">Supply chains</span>
+          <span class="stamp">+ wherever DM is next ahead of the curve</span>
+        </div>
+
+        <p style="margin-top:32px;">A decade in, some of these are a live, named portfolio already. Others are a direction we're investing toward, not a finished thing — we're naming that difference rather than blurring it.</p>
+
+        <div class="portfolio-grid">
+          <div class="pf-col">
+            <div class="pf-tag">Live portfolio</div>
+            <h3>Food systems</h3>
+            <div class="pf-item"><b>Food as Infrastructure</b><span>DM's London-wide portfolio — coordinating across boroughs rather than leaving each to improvise its own pilot, structured around demand, a shared hub, new food economics and supply.</span></div>
+            <div class="pf-item"><b>Universal Basic Nutrient Income</b><span>A working concept piloted with Camden: reframing emergency food spend as an entitlement rather than a referral.</span></div>
+            <div class="pf-item"><b>Camden Food Partnership</b><span>The portfolio's lead demonstrator relationship, alongside Camden's Multi-Agency Healthy Weight Driving Group.</span></div>
+          </div>
+          <div class="pf-col indicative">
+            <div class="pf-tag">Indicative — a direction, not yet real</div>
+            <h3>Governance systems</h3>
+            <div class="pf-item"><b>A rules-change method</b><span>A reusable way of mapping which governance rules are actually blocking a transition — tested through Beyond the Rules and Governing Together.</span></div>
+            <div class="pf-item"><b>A shared sponsor model</b><span>The two-sponsor, fast-judgement structure Next Futures runs internally, made available for other funders' own rapid-response pots.</span></div>
+          </div>
+          <div class="pf-col indicative">
+            <div class="pf-tag">Indicative — a direction, not yet real</div>
+            <h3>Built environment</h3>
+            <div class="pf-item"><b>A retrofit finance pattern</b><span>A replicable way of financing deep retrofit at neighbourhood scale, building on the work alongside Civic Square in Birmingham.</span></div>
+            <div class="pf-item"><b>A regulatory sandbox method</b><span>Ways to test planning and building-safety rule changes with a city before they're written into policy, drawn from DM's design work inside NetZeroCities.</span></div>
+          </div>
+          <div class="pf-col indicative">
+            <div class="pf-tag">Indicative — a direction, not yet real</div>
+            <h3>Supply chains</h3>
+            <div class="pf-item"><b>Shared provenance infrastructure</b><span>Data commons that let smaller producers and manufacturers prove origin and impact without each building their own system.</span></div>
+            <div class="pf-item"><b>A natural-capital financing route</b><span>Applying TreesAI's core logic — pricing an ecological asset so it can carry debt — to other materials moving through DM's supply-chain work.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="essay" id="ask">
+  <div class="wrap">
+    <div class="essay-grid">
+      <div class="essay-margin rust">
+        <div class="essay-num mono">05</div>
+        <div class="essay-tag">[ The proposition ]</div>
+        <svg class="essay-icon" viewBox="0 0 72 24" width="64" height="22" role="img" aria-label="A circle with a plus mark">
+          <circle cx="14" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="14" y1="9" x2="14" y2="15" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="11" y1="12" x2="17" y2="12" stroke="currentColor" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="essay-body">
+        <h2>Why this needs to be pooled, not commissioned</h2>
+        <p>Ordinary project funding struggles to pay for this kind of work, structurally — not because funders don't value it, but because it happens before there's an agreed project or budget holder to attach it to. <em>The difficulty lies in funding work whose purpose includes establishing what needs to be funded.</em> Next Futures exists to hold that cost collectively, so no single funder has to carry the risk of paying for recognition-building or alliance formation that might not resolve into a fundable programme at all. DM is already inside this work, across food systems, governance, the built environment and supply chains. Pooling into Next Futures buys you that vantage point, not just faster paperwork — and it means your money is never the reason a moment was missed.</p>
+
+        <div class="equation">
+          <div class="eq-tag">Illustrative — for discussion, not a fixed target</div>
+          <div class="eq-row">
+            <span class="n">5</span><span class="op">×</span>
+            <span class="n">£100k<span class="eq-sub">per foundation, per year</span></span>
+            <span class="op">=</span>
+            <span class="n result">£500k<span class="eq-sub">pre-committed and ready to move</span></span>
+          </div>
+          <p class="eq-note">At Next Futures scale, that's roughly twenty windows a year — across food systems, governance, the built environment and supply chains — that don't get to close before someone with the money could get to them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="essay" id="pathway">
+  <div class="wrap">
+    <div class="essay-grid">
+      <div class="essay-margin pine">
+        <div class="essay-num mono">06</div>
+        <div class="essay-tag">[ The direction of travel ]</div>
+        <svg class="essay-icon" viewBox="0 0 72 24" width="64" height="22" role="img" aria-label="Three ascending steps connected by a dotted line">
+          <g fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 3">
+            <path d="M4,20 L30,12 L58,4"/>
+          </g>
+          <g fill="currentColor">
+            <circle cx="4" cy="20" r="3"/><circle cx="30" cy="12" r="3"/><circle cx="58" cy="4" r="3"/>
+          </g>
+        </svg>
+      </div>
+      <div class="essay-body" style="max-width:100%;">
+        <h2>A staged pathway, not a single pot</h2>
+        <p>We're designing Next Futures as the first rung of a longer ladder — closer to how early-stage capital works than to a conventional grant cycle, but built for public value rather than a market return.</p>
+        <div class="pathway">
+          <div class="rung">
+            <div class="dot"></div>
+            <div class="tag">Rung 1 · Live</div>
+            <h3>Next Futures</h3>
+            <p>£25–50k, DM's own core funding plus co-funders, already cleared to move. Proves whether a window was real.</p>
+          </div>
+          <div class="rung">
+            <div class="dot"></div>
+            <div class="tag">Rung 2 · Emerging</div>
+            <h3>Proof of traction</h3>
+            <p>A demonstrated multiplier, deep partnerships, or clear signs of scalability — the gateway to the next stage.</p>
+          </div>
+          <div class="rung future">
+            <div class="dot"></div>
+            <div class="tag">Rung 3 · In design</div>
+            <h3>A larger, longer vehicle</h3>
+            <p>A more mature fund — potentially a dedicated tooling fund — for initiatives ready to go further.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="essay" id="why">
+  <div class="wrap">
+    <div class="essay-grid">
+      <div class="essay-margin rust">
+        <div class="essay-num mono">07</div>
+        <div class="essay-tag">[ Why Dark Matter Labs ]</div>
+        <svg class="essay-icon" viewBox="0 0 72 24" width="64" height="22" role="img" aria-label="A small diamond mark">
+          <path d="M14,4 L24,12 L14,20 L4,12 Z" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="essay-body" style="max-width:100%;">
+        <h2>What the work itself shows</h2>
+        <p>Four pieces of work, four different things they say about how DM operates.</p>
+        <div class="proof-list">
+          <div class="proof-item">
+            <span class="pn mono">i.</span>
+            <div>
+              <h3>Beyond the Rules</h3>
+              <p>Continuously funded by Lankelly Chase since 2020, alongside the Democratic Society, Black Thrive and the York Multiple Complex Needs Network — an ongoing inquiry into the rules and governance structures that entrench severe disadvantage, and how to rewrite them.</p>
+              <div class="proof-take">→ trust that's already in place before the next moment arrives</div>
+            </div>
+          </div>
+          <div class="proof-item">
+            <span class="pn mono">ii.</span>
+            <div>
+              <h3>NetZeroCities</h3>
+              <p>DM leads policy and regulatory innovation design within NetZeroCities, the EU's support platform for its 100 Climate-Neutral and Smart Cities Mission — a Horizon Europe-funded consortium of 33 partners working across 112 cities.</p>
+              <div class="proof-take">→ a seat inside the machinery that decides when cities' windows open</div>
+            </div>
+          </div>
+          <div class="proof-item">
+            <span class="pn mono">iii.</span>
+            <div>
+              <h3>TreesAI</h3>
+              <p>DM's open-source platform for financing nature-based infrastructure is piloting in Glasgow with the city council, Scottish Water, Flood Re, Nationwide and Clyde Climate Forest, backed by the Esmée Fairbairn Foundation and NatureScot — turning trees into financeable flood infrastructure.</p>
+              <div class="proof-take">→ ideas built into working, funded tools — not just reports</div>
+            </div>
+          </div>
+          <div class="proof-item">
+            <span class="pn mono">iv.</span>
+            <div>
+              <h3>Civic Square</h3>
+              <p>With Civic Square in Birmingham, DM has co-authored 3ºC Neighbourhood and Endowing the Future, and partnered on the Retrofit Reimagined festival — working as a peer alongside a neighbourhood-scale civic infrastructure team, not above one.</p>
+              <div class="proof-take">→ close enough to the ground to feel a window opening before it's visible nationally</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close" id="contact">
+  <div class="wrap">
+    <div class="close-grid">
+      <div>
+        <h2>Be ready for the next window.</h2>
+        <p class="body-text">If you're already a fan of DM's work — or tired of watching the right moment pass while the paperwork catches up — we'd like to talk about what pre-committed, co-funded capital could look like.</p>
+      </div>
+      <div class="seal">
+        <div class="mark">Nf</div>
+        <a class="mail" href="mailto:adam@darkmatterlabs.org?subject=Next%20Futures%20%E2%80%94%20co-funding">adam@darkmatterlabs.org</a>
+        <a class="site" href="https://darkmatterlabs.org" target="_blank" rel="noopener">darkmatterlabs.org</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Dark Matter Labs — Next Futures proposition</span>
+    <span>Working draft, built from an internal core-funding conversation — figures for review before external use</span>
+  </div>
+</footer>
+
+</body>
+</html>
