@@ -23,6 +23,7 @@
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
+  [id]{scroll-margin-top:92px;}
   @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{animation-duration:0.01ms !important;transition-duration:0.01ms !important;} }
   html,body{margin:0;padding:0;}
   body{
@@ -199,6 +200,15 @@
   .proof-item h3{font-size:1.02rem;font-weight:500;margin-bottom:8px;}
   .proof-item p{font-size:0.95rem;color:var(--ink-dim);max-width:600px;}
   .proof-take{margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.02em;color:var(--pine);}
+
+  /* long arcs */
+  .arc{border-top:1px solid var(--line);padding-top:28px;margin-top:32px;}
+  .arc:first-child{margin-top:8px;}
+  .arc-through{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:500;line-height:1.4;margin-bottom:16px;}
+  .arc-through .arrow{color:var(--ink-faint);font-style:normal;margin:0 2px;}
+  .arc p{color:var(--ink-dim);font-size:0.96rem;max-width:680px;}
+  .arc-track{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.02em;color:var(--rust);}
+  .arc-more{margin-top:32px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.03em;color:var(--ink-faint);border-top:1px dashed var(--line-strong);padding-top:18px;}
   @media (max-width:600px){ .proof-item{gap:12px;} }
 
   /* close / colophon */
@@ -230,6 +240,7 @@
       <a href="#gap">The Window</a>
       <a href="#mechanism">Mechanism</a>
       <a href="#evidence">Evidence</a>
+      <a href="#arcs">Patterns</a>
       <a href="#ask">The Ask</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -645,6 +656,53 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="essay" id="arcs">
+  <div class="wrap">
+    <div class="essay-grid">
+      <div class="essay-margin pine">
+        <div class="essay-num mono">08</div>
+        <div class="essay-tag">[ Ten years of patterns ]</div>
+        <svg class="essay-icon" viewBox="0 0 72 24" width="64" height="22" role="img" aria-label="A single line branching into three">
+          <g fill="none" stroke="currentColor" stroke-width="1">
+            <path d="M4,12 L28,12"/>
+            <path d="M28,12 C40,12 40,4 60,4"/>
+            <path d="M28,12 C40,12 40,12 60,12"/>
+            <path d="M28,12 C40,12 40,20 60,20"/>
+          </g>
+          <circle cx="4" cy="12" r="3" fill="currentColor"/>
+          <g fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="60" cy="4" r="3"/><circle cx="60" cy="12" r="3"/><circle cx="60" cy="20" r="3"/>
+          </g>
+        </svg>
+      </div>
+      <div class="essay-body" style="max-width:100%;">
+        <h2>The shape this fund was built from</h2>
+        <p>Next Futures didn't come from nowhere — it's a pattern DM has lived many times over the last ten years: a small, often tiny, piece of seed work that opens into a much longer arc. Three stories so far, told by the people who were there, with more being added as colleagues across DM send in theirs.</p>
+
+        <div class="arc">
+          <div class="arc-through">System analysis of retrofit <span class="arrow">→</span> scaling the right to retrofit <span class="arrow">→</span> street-based / collective retrofit</div>
+          <p>A small slice of a Clean Cities commission — on the order of £20–30k — plus a modest top-up from Civic Square, seeded an early body of writing on the right to retrofit and what street-based, collective retrofit could look like. DM didn't fund what came next: Civic Square ran with it as the Retrofit Reimagined festival, growing from a single event into a second year of events across multiple UK cities, drawing in further funding including from the National Retrofit Hub. Three groups took the idea further from there, each independently funded — We Can Make (EU funding, now running live projects), Retrofit Balsall Heath (national government retrofit funding, grown into demonstrator work built on DM and Civic Square's early language), and Civic Square itself (channelling JRF funding into further delivery).</p>
+          <div class="arc-track">£20–30k seed → three independently-funded continuations (EU, UK government, JRF)</div>
+        </div>
+
+        <div class="arc">
+          <div class="arc-through">3º Neighbourhoods <span class="arrow">→</span> Endowing the Future <span class="arrow">→</span> Civic Square's capital raise</div>
+          <p>Research into 3º Neighbourhoods — twinning UK neighbourhoods with the climate they'll face as warming reaches three degrees — paired with the Endowing the Future report, mostly funded by Civic Square (DM put in considerably more time than the budget covered). The work reframed how Civic Square talked about their capital project and neighbourhood-scale climate transition, travelled well beyond the two organisations, and fed directly into Civic Square securing significant capital funding for that work. For DM, it opened onto the climate-resilience and regenerative-building-practice work still continuing with Civic Square today, at a smaller, buildable scale.</p>
+          <div class="arc-track">DM over-invested time beyond budget → informed Civic Square's major capital raise → ongoing DM–Civic Square partnership</div>
+        </div>
+
+        <div class="arc">
+          <div class="arc-through">A solar endowment concept <span class="arrow">→</span> the Community Energy Trust <span class="arrow">→</span> Repowered Communities Newham</div>
+          <p>Early retrofit work with Civic Square threw up a rough idea — a "solar endowment," using community energy ownership to help fund retrofit — which DM loosely developed into the Community Energy Trust concept. A handful of small, roughly £10k pieces of work followed, including with Barnet Council on where its energy strategy met its retrofit strategy for homes it doesn't own. That thread led to Repowered Communities Newham, a National Lottery-funded project worth a couple of million pounds, which DM joined through an existing relationship with Repowering London. It's since pulled DM into complex community-energy governance modelling, and into a wider network of UK groups — including Lothian Heat — trialling new ownership models for community energy.</p>
+          <div class="arc-track">~£10k pieces → Repowered Communities Newham, a multi-million-pound Lottery-funded programme</div>
+        </div>
+
+        <div class="arc-more">More arcs are being added as they land from across DM — cities, bioregioning, and TreesAI's path to Google among them.</div>
       </div>
     </div>
   </div>
