@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fcfaf5">
+<meta name="description" content="Ten year-one seedling questions for the next ten years of Dark Matter Labs. A growing set emerging from the conversations we are part of.">
+<title>Ten seedling questions for the next ten years of DM</title>
+<script>document.documentElement.classList.replace('no-js','js');</script>
+<style>
+:root {
+  --field-50:#eef3f0; --field-100:#d7e3df; --field-200:#b5ceca; --field-300:#8aaeaa;
+  --field-500:#4c7273; --field-700:#29454d; --field-800:#1b303b; --field-900:#111c25; --field-950:#0b141b;
+  --signal:#ef6748; --signal-soft:#fbe2da; --signal-text:#963b29; --focus:#c44b31;
+  --paper:#fcfaf5; --paper-2:#f0ede9; --line:#c9cbc6; --soft:#64655f; --ink:#171614;
+  --serif:'Iowan Old Style','Palatino Linotype',Palatino,Baskerville,Georgia,'Times New Roman',serif;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --mono:'DM Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace;
+  --pad:clamp(22px,4.8vw,76px); --max:1600px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;color:var(--ink);background:var(--paper);font:16px/1.55 var(--sans);text-rendering:optimizeLegibility}
+button,a,summary{-webkit-tap-highlight-color:transparent}
+button{font:inherit}
+a{color:inherit;text-underline-offset:.2em}
+button{cursor:pointer}
+button:disabled{cursor:default}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:5px;border-radius:2px}
+::selection{background:var(--field-700);color:var(--paper)}
+[hidden]{display:none!important}
+.no-js .concept-note[hidden]{display:block!important}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:fixed;top:-100px;left:20px;z-index:100;background:var(--field-950);color:var(--paper);padding:12px 20px;border-radius:12px;text-decoration:none}
+.skip:focus{top:16px}
+.progress{position:fixed;inset:0 0 auto;z-index:95;height:3px;pointer-events:none}
+.progress span{display:block;width:0;height:100%;background:var(--signal)}
+.topbar{position:fixed;inset:18px var(--pad) auto;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:14px;pointer-events:none}
+.brand{pointer-events:auto;display:inline-flex;align-items:center;gap:16px;min-height:48px;padding:8px 17px;background:var(--field-950);color:var(--paper);border:1px solid var(--field-700);border-radius:15px 15px 5px 15px;text-decoration:none;box-shadow:0 9px 30px #0b141b10}
+.brand strong{font-size:20px;letter-spacing:-.04em;font-weight:650}
+.brand span{border-left:1px solid #d7e3df55;padding-left:15px;font:10px/1.4 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--field-100)}
+.top-actions{display:flex;gap:9px;align-items:center;pointer-events:auto}
+.print-button{min-height:46px;padding:0 16px;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:14px 14px 5px 14px;font-size:12px}
+.print-button:hover{background:var(--paper-2)}
+.index-menu{position:relative}
+.index-menu summary{display:flex;align-items:center;gap:10px;list-style:none;min-height:46px;padding:0 18px;background:var(--field-950);color:var(--paper);border-radius:14px 14px 14px 5px;font-size:12px;cursor:pointer;border:1px solid var(--field-700)}
+.index-menu summary::-webkit-details-marker{display:none}
+.index-menu summary::after{content:'+';font:21px/1 var(--mono);color:var(--field-200)}
+.index-menu[open] summary::after{content:'−'}
+.index-menu nav{position:absolute;right:0;top:57px;width:min(355px,calc(100vw - 44px));max-height:calc(100dvh - 110px);overflow:auto;padding:18px;background:var(--paper);border:1px solid var(--line);border-radius:16px 5px 16px 16px;box-shadow:0 20px 64px #0b141b26}
+.index-menu nav p{margin:0 0 10px;font:10px/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.index-menu nav a{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;min-height:44px;padding:11px 7px;border-radius:5px;text-decoration:none;font-size:13px;line-height:1.4}
+.index-menu nav a span{font:11px/1.7 var(--mono);color:var(--soft)}
+.index-menu nav a:hover{background:var(--field-50);box-shadow:inset 2px 0 var(--focus)}
+.frame{max-width:var(--max);margin:0 auto;padding-inline:var(--pad)}
+.hero{padding-top:138px;padding-bottom:64px;background:radial-gradient(ellipse at 96% 5%,#d7e3df60,transparent 45%),var(--paper);border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,.8fr);gap:clamp(36px,6vw,100px);align-items:end}
+.eyebrow{margin:0;font:11px/1.6 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.hero h1{margin:29px 0 22px;font:400 clamp(64px,7.7vw,122px)/.91 var(--serif);letter-spacing:-.055em;max-width:920px}
+.hero h1 em{font-weight:400;color:var(--field-700)}
+.hero-subtitle{margin:0;font:400 clamp(25px,2.6vw,39px)/1.15 var(--serif);letter-spacing:-.02em;max-width:700px}
+.hero-context{padding:0 0 2px 28px;border-left:1px solid var(--field-300);max-width:370px}
+.hero-context h2{font:400 30px/1.1 var(--serif);letter-spacing:-.025em;margin:0 0 18px}
+.hero-context p{margin:0 0 15px;font-size:15px;line-height:1.7;color:#454641}
+.hero-context p:last-child{margin-bottom:0}
+.hero-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:43px}
+.hero-foot a{display:inline-flex;align-items:center;gap:16px;font-size:13px;text-decoration:none;border-bottom:1px solid var(--field-700);padding-bottom:5px}
+.hero-foot a span{font-size:20px}
+.hero-foot .status{font:10px/1.6 var(--mono);color:var(--soft);letter-spacing:.07em;text-transform:uppercase}
+.status::before{content:'';display:inline-block;width:6px;height:6px;border:1px solid var(--field-500);border-radius:50%;margin-right:9px;vertical-align:1px}
+.matrix-section{padding-block:57px 82px}
+.matrix-toolbar{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:28px}
+.matrix-toolbar h2{font:400 clamp(36px,4.2vw,58px)/1.05 var(--serif);letter-spacing:-.04em;margin:0}
+.matrix-toolbar .eyebrow{margin-bottom:10px}
+.view-switch{display:inline-flex;flex-shrink:0;border:1px solid var(--line);border-radius:10px 10px 3px 10px;padding:3px;background:var(--paper)}
+.view-switch button{padding:9px 15px;border:0;border-radius:7px 7px 2px 7px;color:var(--soft);background:transparent;font-size:12px;min-height:39px}
+.view-switch button[aria-pressed=true]{background:var(--field-800);color:var(--paper)}
+.view-switch button:hover:not([aria-pressed=true]){background:var(--paper-2);color:var(--ink)}
+.matrix{border-collapse:collapse;width:100%;table-layout:fixed;border-top:1px solid var(--field-700)}
+.matrix col:nth-child(1){width:23%}.matrix col:nth-child(2){width:41%}.matrix col:nth-child(3){width:36%}
+.matrix caption{text-align:left;font:12px/1.5 var(--sans);color:var(--soft);padding:0 0 14px}
+.matrix thead th{text-align:left;padding:18px 24px 18px 0;border-bottom:1px solid var(--field-700);font:10px/1.5 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--field-700);font-weight:400;vertical-align:bottom}
+.matrix thead th+th{padding-left:27px}
+.matrix thead th:last-child{padding-right:0}
+.matrix tbody th,.matrix tbody td{text-align:left;font-weight:400;vertical-align:top;border-bottom:1px solid var(--line);padding-block:30px;transition:background-color .15s ease}
+.matrix tbody td{padding-left:27px;padding-right:26px}
+.matrix tbody th{padding-right:20px}
+.matrix tbody td:last-child{padding-right:0}
+.matrix tbody tr{scroll-margin-top:105px}
+.inquiry-heading{display:grid;grid-template-columns:27px minmax(0,1fr);gap:15px;align-items:start}
+.inquiry-number{font:11px/1.6 var(--mono);color:var(--soft);padding-top:5px;font-variant-numeric:tabular-nums}
+.inquiry-title{display:block;font:600 clamp(15px,1.25vw,19px)/1.35 var(--sans);letter-spacing:-.018em;text-decoration:none;text-wrap:balance}
+.inquiry-title:hover{text-decoration:underline;text-decoration-color:var(--field-500)}
+.inquiry-descriptor{display:block;margin-top:10px;color:var(--soft);font:13px/1.45 var(--sans)}
+.question-text{margin:0;font:400 clamp(23px,1.9vw,29px)/1.27 var(--serif);letter-spacing:-.015em;overflow-wrap:anywhere}
+.opens-cell>p{margin:2px 0 0;font:15px/1.7 var(--sans);color:#454641}
+.concept-knot{display:inline;padding:0;border:0;border-bottom:1px dotted var(--field-500);border-radius:0;background:transparent;color:inherit;font:inherit;letter-spacing:inherit;text-align:inherit;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.concept-knot:disabled{color:inherit;opacity:1}
+.concept-knot:hover,.concept-knot:focus-visible,.concept-knot[aria-expanded=true]{color:var(--signal-text);border-color:var(--signal-text)}
+.concept-note{margin:23px 0 0;border-left:1px dashed var(--field-500);padding:0 0 0 17px}
+.concept-note p{font:14px/1.65 var(--sans);color:#454641;margin:0}
+.concept-note .note-label{font:9px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:9px}
+.note-source{display:inline-block;margin-top:10px;font:12px/1.6 var(--sans);text-decoration-thickness:1px;color:var(--field-700)}
+.mobile-label{display:none}
+.concept-tooltip{position:fixed;z-index:70;max-width:340px;width:calc(100vw - 40px);padding:21px 22px;background:var(--field-950);color:var(--paper);border:1px solid var(--field-700);border-radius:16px 16px 4px 16px;box-shadow:0 16px 42px #0b141b30;pointer-events:none}
+.concept-tooltip .tooltip-label{margin:0 0 9px;font:9px/1.5 var(--mono);text-transform:uppercase;letter-spacing:.11em;color:var(--field-200)}
+.concept-tooltip .tooltip-term{margin:0 0 11px;font:400 24px/1.1 var(--serif);letter-spacing:-.02em}
+.concept-tooltip .tooltip-copy{margin:0;font:13px/1.65 var(--sans);color:var(--field-100)}
+.concept-tooltip .tooltip-hint{margin:12px 0 0;font:10px/1.5 var(--mono);color:var(--field-300)}
+.afterword{background:var(--field-950);color:var(--paper);padding-block:60px 45px}
+.afterword-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(32px,7vw,110px)}
+.afterword h2{font:400 clamp(36px,3.8vw,54px)/1.05 var(--serif);letter-spacing:-.035em;margin:0;max-width:360px}
+.afterword p{font:400 clamp(20px,1.8vw,27px)/1.45 var(--serif);color:var(--field-100);margin:0;max-width:760px}
+.source-line{margin-top:39px;padding-top:23px;border-top:1px solid #d7e3df38;display:flex;justify-content:space-between;gap:32px;align-items:flex-start}
+.source-line p{font:12px/1.7 var(--sans);color:var(--field-200);max-width:730px}
+.source-line a{text-decoration-thickness:1px}
+.source-line .edition{font:10px/1.6 var(--mono);white-space:nowrap;letter-spacing:.08em;text-transform:uppercase;color:var(--field-300)}
+.no-js [data-js-only]{display:none}
+body[data-view=reading] .matrix,body[data-view=reading] .matrix tbody{display:block}
+body[data-view=reading] .matrix colgroup,body[data-view=reading] .matrix thead{display:none}
+body[data-view=reading] .matrix caption{display:block}
+body[data-view=reading] .matrix .inquiry-row{display:grid;grid-template-columns:minmax(180px,.7fr) minmax(0,1.5fr) minmax(0,1fr);gap:40px;padding-block:45px;border-bottom:1px solid var(--line)}
+body[data-view=reading] .matrix tbody th,body[data-view=reading] .matrix tbody td{display:block;border:0;padding:0}
+body[data-view=reading] .question-text{font-size:clamp(29px,2.7vw,40px);line-height:1.22}
+body[data-view=reading] .matrix .mobile-label{display:block;font:9px/1.5 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--soft);margin-bottom:14px}
+@media(min-width:1650px){.hero h1{font-size:126px}}
+@media(max-width:1100px){
+  .hero-grid{grid-template-columns:minmax(0,1.6fr) minmax(240px,.9fr);gap:36px}
+  .hero h1{font-size:clamp(64px,8.7vw,100px)}
+  .hero-context{padding-left:22px}.hero-context p{font-size:14px}
+  .matrix col:nth-child(1){width:24%}.matrix col:nth-child(2){width:41%}.matrix col:nth-child(3){width:35%}
+  .matrix tbody td,.matrix thead th+th{padding-left:22px}.matrix tbody td{padding-right:20px}
+  .inquiry-heading{gap:9px;grid-template-columns:23px minmax(0,1fr)}
+  .opens-cell>p{font-size:14px;line-height:1.65}
+  body[data-view=reading] .matrix .inquiry-row{grid-template-columns:minmax(155px,.7fr) minmax(0,1.4fr);gap:24px 36px}
+  body[data-view=reading] .opens-cell{grid-column:2}
+}
+@media(max-width:780px){
+  html{scroll-padding-top:94px}
+  .topbar{inset:14px var(--pad) auto}.brand{min-height:44px;padding:7px 13px;gap:12px}.brand span{font-size:9px;padding-left:12px}.brand strong{font-size:19px}
+  .top-actions{gap:7px}.print-button{display:none}.index-menu summary{min-height:44px;padding:0 13px;font-size:11px}
+  .hero{padding-top:113px;padding-bottom:35px}.hero-grid{grid-template-columns:1fr;gap:31px}
+  .hero h1{font-size:clamp(58px,12.3vw,92px);margin-top:23px;margin-bottom:19px;max-width:650px}
+  .hero-subtitle{font-size:clamp(25px,4.9vw,34px);max-width:470px}
+  .hero-context{max-width:600px;padding-left:19px;border-left-color:var(--field-300)}.hero-context h2{font-size:25px;margin-bottom:11px}.hero-context p{font-size:14px;line-height:1.7;margin-bottom:10px}
+  .hero-foot{margin-top:29px}.hero-foot .status{font-size:9px;max-width:120px;text-align:right}
+  .hero-foot a{font-size:12px;gap:13px}
+  .matrix-section{padding-block:36px 52px}.matrix-toolbar{margin-bottom:23px;align-items:flex-start;gap:16px}.matrix-toolbar h2{font-size:35px}.matrix-toolbar .eyebrow{font-size:9px;margin-bottom:8px}
+  .view-switch{display:none!important}
+  .matrix,.matrix tbody,body[data-view=reading] .matrix,body[data-view=reading] .matrix tbody{display:block}
+  .matrix colgroup,.matrix thead{display:none}
+  .matrix caption{display:block;font-size:11px;line-height:1.6;padding-bottom:15px}
+  .matrix .inquiry-row,body[data-view=reading] .matrix .inquiry-row{display:grid;grid-template-columns:1fr;gap:0;padding-block:28px 31px;border-bottom:1px solid var(--line)}
+  .matrix tbody th,.matrix tbody td,body[data-view=reading] .matrix tbody th,body[data-view=reading] .matrix tbody td{display:block;padding:0;border:0}
+  .inquiry-heading{grid-template-columns:29px minmax(0,1fr);gap:12px}
+  .inquiry-number{padding-top:2px;font-size:10px}.inquiry-title{font-size:17px;line-height:1.35;max-width:420px}
+  .inquiry-descriptor{margin-top:6px;font-size:12px;line-height:1.5;max-width:390px}
+  .matrix .question-cell,body[data-view=reading] .matrix .question-cell{margin-top:24px}
+  .question-text,body[data-view=reading] .question-text{font-size:clamp(27px,5.4vw,35px);line-height:1.28;letter-spacing:-.02em}
+  .matrix .opens-cell,body[data-view=reading] .matrix .opens-cell{margin-top:22px;grid-column:auto}
+  .matrix .mobile-label,body[data-view=reading] .matrix .mobile-label{display:block;margin-bottom:9px;font:9px/1.5 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--soft)}
+  .opens-cell>p{font-size:14px;line-height:1.72;margin:0;max-width:590px}
+  .concept-note{margin-top:20px}.concept-note p{font-size:13px}
+  .concept-tooltip{display:none!important}
+  .afterword{padding-block:39px 30px}.afterword-grid{grid-template-columns:1fr;gap:23px}.afterword h2{font-size:36px;max-width:300px}.afterword p{font-size:22px;line-height:1.45}
+  .source-line{display:block;margin-top:30px;padding-top:20px}.source-line p{font-size:11px;line-height:1.8}.source-line .edition{font-size:9px;margin-top:23px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+@media print{
+  @page{size:A4 portrait;margin:14mm 12mm}
+  html{scroll-behavior:auto;scroll-padding-top:0}body{background:white;color:#171614;font-size:10pt}
+  .topbar,.skip,.progress,.hero-foot,.view-switch,.concept-tooltip{display:none!important}
+  .frame{max-width:none;padding:0}.hero{background:none;padding:0 0 7mm;border-bottom:1px solid #c9cbc6}
+  .hero-grid{display:block}.hero .eyebrow{font-size:8pt}.hero h1{font-size:37pt;line-height:1;margin:4mm 0;max-width:none}.hero h1 br{display:none}.hero h1 em{color:inherit}
+  .hero-subtitle{font-size:18pt}.hero-context{border:0;padding:0;max-width:none;margin-top:5mm}.hero-context h2{display:none}.hero-context p{display:inline;font-size:9pt;line-height:1.45;margin:0}
+  .hero-context p+p::before{content:' '}.matrix-section{padding:6mm 0}.matrix-toolbar{display:block;margin-bottom:4mm}.matrix-toolbar h2{font-size:23pt}.matrix-toolbar .eyebrow{font-size:7pt}
+  .matrix,body[data-view=reading] .matrix{display:table!important;table-layout:fixed;width:100%;border-collapse:collapse}
+  .matrix colgroup{display:table-column-group!important}.matrix thead{display:table-header-group!important}.matrix tbody,body[data-view=reading] .matrix tbody{display:table-row-group!important}.matrix caption{display:table-caption!important;font-size:8pt;padding-bottom:3mm}
+  .matrix .inquiry-row,body[data-view=reading] .matrix .inquiry-row{display:table-row!important;break-inside:avoid;page-break-inside:avoid;padding:0}
+  .matrix tbody th,.matrix tbody td,body[data-view=reading] .matrix tbody th,body[data-view=reading] .matrix tbody td{display:table-cell!important;border-bottom:1px solid #c9cbc6;padding:4mm 3mm 4mm 0!important;margin:0!important}
+  .matrix col:nth-child(1){width:23%}.matrix col:nth-child(2){width:40%}.matrix col:nth-child(3){width:37%}
+  .matrix thead th{font-size:7pt;padding:3mm 3mm 3mm 0!important}.inquiry-heading{grid-template-columns:16px minmax(0,1fr);gap:6px}.inquiry-number{font-size:7pt;padding-top:0}
+  .inquiry-title{font-size:9pt;line-height:1.3}.inquiry-descriptor{font-size:8pt;line-height:1.4;margin-top:2mm}
+  .question-text,body[data-view=reading] .question-text{font-size:12pt;line-height:1.25}.opens-cell>p{font-size:8.5pt;line-height:1.5;margin:0}
+  .concept-knot{border:0;color:inherit!important}.concept-note[hidden],.concept-note{display:block!important;border-left:1px dashed #8aaeaa;margin-top:3mm;padding-left:2.5mm}.concept-note p{font-size:8pt;line-height:1.4}.concept-note .note-label{font-size:6.5pt;margin-bottom:1mm}.note-source{font-size:7pt}
+  .mobile-label,body[data-view=reading] .matrix .mobile-label{display:none!important}
+  .afterword{background:none;color:#171614;padding:4mm 0 0}.afterword-grid{display:block}.afterword h2{font-size:18pt;max-width:none;margin-bottom:3mm}.afterword p{color:inherit;font-size:10pt;line-height:1.45;max-width:none}.source-line{display:block;border-color:#c9cbc6;margin-top:4mm;padding-top:3mm}.source-line p{font-size:8pt;line-height:1.5;color:inherit}.source-line .edition{font-size:7pt;color:inherit;margin-top:2mm}
+}
+</style>
+</head>
+<body data-view="matrix">
+<!-- Design reference: XCO Polyphonic Communication Style Guide version 5.
+     This is an exploratory inquiry set. Sequence numbers identify questions, not rank.
+     Serif carries questions; sans carries elaboration and controls; mono carries identifiers.
+     A dotted underline opens semantic elaboration of its exact term, not evidence or proof.
+     A click or tap keeps the note in the reading flow; hover/focus provides a preview.
+     All primary text remains recoverable without interaction. No forms, tracking or remote assets. -->
+<a class="skip" href="#matrix">Skip to the questions</a>
+<div class="progress" aria-hidden="true"><span></span></div>
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Dark Matter Labs, year one, back to top"><strong>DM</strong><span>Next ten years<br>Year one</span></a>
+  <div class="top-actions">
+    <button class="print-button" id="print-button" type="button" data-js-only>Print / save PDF</button>
+    <details class="index-menu"><summary>Index</summary><nav aria-label="Question index"><p>Ten starting questions</p><a href="#question-01"><span>01</span>Species Nation</a><a href="#question-02"><span>02</span>Inquiry Native Organising</a><a href="#question-03"><span>03</span>A Conscious Economy Beyond Labour</a><a href="#question-04"><span>04</span>Three Degree City</a><a href="#question-05"><span>05</span>The Future of Money</a><a href="#question-06"><span>06</span>Free Everything</a><a href="#question-07"><span>07</span>Universe</a><a href="#question-08"><span>08</span>Auto-Regulating Futures</a><a href="#question-09"><span>09</span>The High Frequency Feedback State</a><a href="#question-10"><span>10</span>The Future of Luxury</a></nav></details>
+  </div>
+</header>
+<main id="top">
+  <section class="hero" aria-labelledby="page-title">
+    <div class="frame">
+      <div class="hero-grid">
+        <div><p class="eyebrow">Dark Matter Labs / Year one</p>
+          <h1 id="page-title">Ten <em>seedling</em><br>questions.</h1>
+          <p class="hero-subtitle">For the next ten years of DM.</p>
+        </div>
+        <aside class="hero-context" aria-label="How to read this inquiry set"><h2>A first sample</h2>
+          <p>As DM enters its next ten years, we are beginning with a growing set of questions emerging from the conversations we are part of.</p>
+          <p>These ten are a first sample for year one. They offer starting points for shared inquiry and experimentation.</p>
+          <p>We expect to add further questions and to deepen, connect and revise these as we learn.</p>
+        </aside>
+      </div>
+      <div class="hero-foot"><a href="#matrix">Explore the questions <span aria-hidden="true">↓</span></a><span class="status">An open inquiry set</span></div>
+    </div>
+  </section>
+  <section class="matrix-section frame" id="matrix" aria-labelledby="matrix-title">
+    <div class="matrix-toolbar"><div><p class="eyebrow">01–10 / Year one</p><h2 id="matrix-title">Starting questions</h2></div>
+      <div class="view-switch" role="group" aria-label="Reading layout" data-js-only><button type="button" data-view-button="matrix" aria-pressed="true">Matrix</button><button type="button" data-view-button="reading" aria-pressed="false">Reading view</button></div>
+    </div>
+    <table class="matrix" role="table"><caption>Ten emerging inquiries and what each opens up.</caption><colgroup><col><col><col></colgroup>
+      <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Emerging inquiry</th><th scope="col" role="columnheader">Seedling question</th><th scope="col" role="columnheader">What it opens up</th></tr></thead>
+      <tbody role="rowgroup"><tr id="question-01" class="inquiry-row" role="row">
+      <th scope="row" role="rowheader"><div class="inquiry-heading"><span class="inquiry-number">01</span><div><a class="inquiry-title" href="#question-01">Species Nation</a></div></div></th>
+      <td class="question-cell" role="cell"><span class="mobile-label">Seedling question</span><p class="question-text">What would it mean for a species, such as whales, to <button class="concept-knot" type="button" disabled aria-expanded="false" aria-controls="note-01" aria-describedby="note-copy-01" data-term="constitute a nation">constitute a nation</button> and exercise collective agency across human borders?</p>
+        <aside class="concept-note" id="note-01" hidden><p class="note-label">Exploring this term</p><p id="note-copy-01">An inquiry into political standing and collective agency for a species, including representation, resources and treaty relationships across human jurisdictions.</p></aside>
+      </td>
+      <td class="opens-cell" role="cell"><span class="mobile-label">What it opens up</span><p>Political membership, representation, territory, resources and treaty relationships. How might a species shape the conditions of its own future?</p></td>
+    </tr>
+<tr id="question-02" class="inquiry-row" role="row">
+      <th scope="row" role="rowheader"><div class="inquiry-heading"><span class="inquiry-number">02</span><div><a class="inquiry-title" href="#question-02">Inquiry Native Organising</a></div></div></th>
+      <td class="question-cell" role="cell"><span class="mobile-label">Seedling question</span><p class="question-text">How could we organise around shared inquiry and evolving commitments, with <button class="concept-knot" type="button" disabled aria-expanded="false" aria-controls="note-02" aria-describedby="note-copy-02" data-term="human–machine learning capacity">human–machine learning capacity</button> at the core?</p>
+        <aside class="concept-note" id="note-02" hidden><p class="note-label">Exploring this term</p><p id="note-copy-02">Shared inquiry becomes part of how an organisation allocates attention and resources, holds commitments and revises its assumptions.</p></aside>
+      </td>
+      <td class="opens-cell" role="cell"><span class="mobile-label">What it opens up</span><p>A thesis of organising encompassing authority, accountability, institutional memory and resource allocation. How can institutions learn and revise their assumptions while sustaining responsibility?</p></td>
+    </tr>
+<tr id="question-03" class="inquiry-row" role="row">
+      <th scope="row" role="rowheader"><div class="inquiry-heading"><span class="inquiry-number">03</span><div><a class="inquiry-title" href="#question-03">A Conscious Economy Beyond Labour</a></div></div></th>
+      <td class="question-cell" role="cell"><span class="mobile-label">Seedling question</span><p class="question-text">What would an economy centred on <button class="concept-knot" type="button" disabled aria-expanded="false" aria-controls="note-03" aria-describedby="note-copy-03" data-term="conscious existence">conscious existence</button>, intrinsic motivation and freedom to contribute look like beyond labour?</p>
+        <aside class="concept-note" id="note-03" hidden><p class="note-label">Exploring this term</p><p id="note-copy-03">Life and belonging have standing beyond productive usefulness. The inquiry includes care, imagination, meaning and the freedom to contribute.</p></aside>
+      </td>
+      <td class="opens-cell" role="cell"><span class="mobile-label">What it opens up</span><p>Material security, shared wealth and participation that enable care, imagination, embodied intelligence and meaning, with belonging independent of productive usefulness.</p></td>
+    </tr>
+<tr id="question-04" class="inquiry-row" role="row">
+      <th scope="row" role="rowheader"><div class="inquiry-heading"><span class="inquiry-number">04</span><div><a class="inquiry-title" href="#question-04">Three Degree City</a></div></div></th>
+      <td class="question-cell" role="cell"><span class="mobile-label">Seedling question</span><p class="question-text">What would a city need to become to sustain life in a world <button class="concept-knot" type="button" disabled aria-expanded="false" aria-controls="note-04" aria-describedby="note-copy-04" data-term="three degrees warmer">three degrees warmer</button>?</p>
+        <aside class="concept-note" id="note-04" hidden><p class="note-label">Exploring this term</p><p id="note-copy-04">A scenario used as a material design condition. The question asks how the city's coupled systems would need to change to sustain life.</p></aside>
+      </td>
+      <td class="opens-cell" role="cell"><span class="mobile-label">What it opens up</span><p>The hard systems reality of habitation: heat, water, food, energy, buildings, public health and municipal economics, examined through their interdependencies.</p></td>
+    </tr>
+<tr id="question-05" class="inquiry-row" role="row">
+      <th scope="row" role="rowheader"><div class="inquiry-heading"><span class="inquiry-number">05</span><div><a class="inquiry-title" href="#question-05">The Future of Money</a><span class="inquiry-descriptor">A New Monetary Lab</span></div></div></th>
+      <td class="question-cell" role="cell"><span class="mobile-label">Seedling question</span><p class="question-text">How could securitised claims on verified resources and future productive value, <button class="concept-knot" type="button" disabled aria-expanded="false" aria-controls="note-05" aria-describedby="note-copy-05" data-term="underwritten by third parties">underwritten by third parties</button>, support present-day liquidity and new forms of money?</p>
+        <aside class="concept-note" id="note-05" hidden><p class="note-label">Exploring this term</p><p id="note-copy-05">The African Monetary Lab concept separates enforceable backing from redemption liquidity. Guarantees or insurance cover defined risks; liquid reserves or facilities support payments when due.</p><a class="note-source" href="https://chatgpt.com/library?file_id=libfile_b98882c9ccd08191b3959e14be89a4f0&amp;account_id=personal">African Monetary Lab concept paper ↗</a></aside>
+      </td>
+      <td class="opens-cell" role="cell"><span class="mobile-label">What it opens up</span><p>Resource-backed currencies; claims on future production, restoration and receivables; third-party guarantees and liquidity facilities. The proof, enforceable rights, issuance, redemption and governance needed to make those claims usable as money while retaining public value and monetary sovereignty.</p></td>
+    </tr>
+<tr id="question-06" class="inquiry-row" role="row">
+      <th scope="row" role="rowheader"><div class="inquiry-heading"><span class="inquiry-number">06</span><div><a class="inquiry-title" href="#question-06">Free Everything</a><span class="inquiry-descriptor">Everything is self-owning</span></div></div></th>
+      <td class="question-cell" role="cell"><span class="mobile-label">Seedling question</span><p class="question-text">What would a world look like if <button class="concept-knot" type="button" disabled aria-expanded="false" aria-controls="note-06" aria-describedby="note-copy-06" data-term="everything owned itself">everything owned itself</button> and people entered into relationships of use, care and obligation with it?</p>
+        <aside class="concept-note" id="note-06" hidden><p class="note-label">Exploring this term</p><p id="note-copy-06">People relate to entities through use, care and obligation. The inquiry asks who represents those entities and how their integrity and evolving capacities shape decisions.</p></aside>
+      </td>
+      <td class="opens-cell" role="cell"><span class="mobile-label">What it opens up</span><p>Representation, access, stewardship, investment and surplus for self-owning land, buildings, infrastructure and other entities. Who speaks for them, and how are their integrity and evolving capacities upheld?</p></td>
+    </tr>
+<tr id="question-07" class="inquiry-row" role="row">
+      <th scope="row" role="rowheader"><div class="inquiry-heading"><span class="inquiry-number">07</span><div><a class="inquiry-title" href="#question-07">Universe</a><span class="inquiry-descriptor">Universal Basic Nutrition</span></div></div></th>
+      <td class="question-cell" role="cell"><span class="mobile-label">Seedling question</span><p class="question-text">What infrastructure would make sufficient, healthy and ecologically sustainable nutrition <button class="concept-knot" type="button" disabled aria-expanded="false" aria-controls="note-07" aria-describedby="note-copy-07" data-term="universally accessible">universally accessible</button>?</p>
+        <aside class="concept-note" id="note-07" hidden><p class="note-label">Exploring this term</p><p id="note-copy-07">Universal provision includes production, preparation, distribution and financing, with room for different dietary needs and cultural practices.</p></aside>
+      </td>
+      <td class="opens-cell" role="cell"><span class="mobile-label">What it opens up</span><p>Production, procurement, preparation, distribution and financing linked through universal provision, accommodating diverse needs and cultural practices while supporting regenerative food systems.</p></td>
+    </tr>
+<tr id="question-08" class="inquiry-row" role="row">
+      <th scope="row" role="rowheader"><div class="inquiry-heading"><span class="inquiry-number">08</span><div><a class="inquiry-title" href="#question-08">Auto-Regulating Futures</a><span class="inquiry-descriptor">The Future of Regulation</span></div></div></th>
+      <td class="question-cell" role="cell"><span class="mobile-label">Seedling question</span><p class="question-text">How could <button class="concept-knot" type="button" disabled aria-expanded="false" aria-controls="note-08" aria-describedby="note-copy-08" data-term="regulatory capacity">regulatory capacity</button> become embedded in systems so they recognise their effects and adjust within collectively agreed purposes and limits?</p>
+        <aside class="concept-note" id="note-08" hidden><p class="note-label">Exploring this term</p><p id="note-copy-08">The ability to recognise effects, act on obligations and correct behaviour becomes part of how a system operates. Public purposes and the authority to revise rules remain explicit questions.</p></aside>
+      </td>
+      <td class="opens-cell" role="cell"><span class="mobile-label">What it opens up</span><p>Feedback, actionable obligations, correction and adaptive rules. Who sets public purposes, verifies outcomes and has the authority to revise the regulatory framework?</p></td>
+    </tr>
+<tr id="question-09" class="inquiry-row" role="row">
+      <th scope="row" role="rowheader"><div class="inquiry-heading"><span class="inquiry-number">09</span><div><a class="inquiry-title" href="#question-09">The High Frequency Feedback State</a></div></div></th>
+      <td class="question-cell" role="cell"><span class="mobile-label">Seedling question</span><p class="question-text">How could state governance continuously sense changing conditions, learn from consequences and correct its actions through <button class="concept-knot" type="button" disabled aria-expanded="false" aria-controls="note-09" aria-describedby="note-copy-09" data-term="high frequency feedback">high frequency feedback</button>?</p>
+        <aside class="concept-note" id="note-09" hidden><p class="note-label">Exploring this term</p><p id="note-copy-09">Different decisions need different rhythms: fast sensing, careful verification and sustained democratic deliberation, coupled to the authority and resources to respond.</p></aside>
+      </td>
+      <td class="opens-cell" role="cell"><span class="mobile-label">What it opens up</span><p>Relationships between public experience, evidence, democratic scrutiny, policy, budgets and delivery. Fast sensing combined with careful verification and sustained deliberation, with authority and resources to act.</p></td>
+    </tr>
+<tr id="question-10" class="inquiry-row" role="row">
+      <th scope="row" role="rowheader"><div class="inquiry-heading"><span class="inquiry-number">10</span><div><a class="inquiry-title" href="#question-10">The Future of Luxury</a><span class="inquiry-descriptor">In an age of austerity, violence and volatility</span></div></div></th>
+      <td class="question-cell" role="cell"><span class="mobile-label">Seedling question</span><p class="question-text">What becomes <button class="concept-knot" type="button" disabled aria-expanded="false" aria-controls="note-10" aria-describedby="note-copy-10" data-term="desirable, prestigious and legitimate">desirable, prestigious and legitimate</button> in an age of austerity, violence and volatility?</p>
+        <aside class="concept-note" id="note-10" hidden><p class="note-label">Exploring this term</p><p id="note-copy-10">The inquiry holds open luxury as exclusive access to scarce conditions of a good life and luxury as a source of new possibilities for living well.</p></aside>
+      </td>
+      <td class="opens-cell" role="cell"><span class="mobile-label">What it opens up</span><p>Changing aspirations, status and privilege; exclusive access to safety, time and continuity; the legitimacy of exceptional consumption; luxury's capacity to create new possibilities and shared abundance.</p></td>
+    </tr></tbody>
+    </table>
+  </section>
+  <section class="afterword" aria-labelledby="afterword-title"><div class="frame">
+    <div class="afterword-grid"><h2 id="afterword-title">The set will grow.</h2><p>The invitation in year one is to work on these questions with others, surface the assumptions they carry and find where practical exploration can deepen our understanding. As new questions emerge, the set will grow.</p></div>
+    <div class="source-line"><p>The money inquiry draws on the <a href="https://chatgpt.com/library?file_id=libfile_b98882c9ccd08191b3959e14be89a4f0&amp;account_id=personal">African Monetary Lab concept paper ↗</a>.</p><p class="edition">Dark Matter Labs / Year one</p></div>
+  </div></section>
+</main>
+<div class="concept-tooltip" id="concept-tooltip" role="tooltip" hidden><p class="tooltip-label">Exploring this term</p><p class="tooltip-term" id="tooltip-term"></p><p class="tooltip-copy" id="tooltip-copy"></p><p class="tooltip-hint">Select to keep this note open</p></div>
+<script>
+(() => {
+  const root = document.body;
+  const menu = document.querySelector('.index-menu');
+  const tooltip = document.getElementById('concept-tooltip');
+  const progress = document.querySelector('.progress span');
+  const knots = [...document.querySelectorAll('.concept-knot')];
+  let active = null;
+  function closeTooltip() { tooltip.hidden = true; active = null; }
+  function positionTooltip(button) {
+    const r = button.getBoundingClientRect();
+    const width = tooltip.offsetWidth;
+    const height = tooltip.offsetHeight;
+    const left = Math.max(20, Math.min(r.left, window.innerWidth - width - 20));
+    const below = r.bottom + 13;
+    let top = below + height <= window.innerHeight - 16 ? below : r.top - height - 13;
+    top = Math.max(86, Math.min(top, window.innerHeight - height - 16));
+    tooltip.style.left = left + 'px'; tooltip.style.top = top + 'px';
+  }
+  function showTooltip(button) {
+    if (window.matchMedia('(max-width:780px)').matches || button.getAttribute('aria-expanded') === 'true') return;
+    const note = document.getElementById(button.getAttribute('aria-controls'));
+    document.getElementById('tooltip-term').textContent = button.dataset.term;
+    document.getElementById('tooltip-copy').textContent = note.querySelector('p:not(.note-label)').textContent;
+    active = button; tooltip.hidden = false; positionTooltip(button);
+  }
+  knots.forEach(button => {
+    button.disabled = false;
+    button.addEventListener('pointerenter', event => { if(event.pointerType !== 'touch') showTooltip(button); });
+    button.addEventListener('pointerleave', closeTooltip);
+    button.addEventListener('focus', () => showTooltip(button));
+    button.addEventListener('blur', closeTooltip);
+    button.addEventListener('click', () => {
+      closeTooltip();
+      const open = button.getAttribute('aria-expanded') !== 'true';
+      button.setAttribute('aria-expanded', String(open));
+      document.getElementById(button.getAttribute('aria-controls')).hidden = !open;
+    });
+  });
+  document.querySelectorAll('[data-view-button]').forEach(button => button.addEventListener('click', () => {
+    root.dataset.view = button.dataset.viewButton;
+    document.querySelectorAll('[data-view-button]').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+    closeTooltip();
+  }));
+  document.getElementById('print-button').addEventListener('click', () => window.print());
+  document.querySelectorAll('.index-menu nav a').forEach(a => a.addEventListener('click', () => { menu.open = false; }));
+  document.addEventListener('pointerdown', e => { if(!menu.contains(e.target)) menu.open = false; });
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape') {
+      closeTooltip(); menu.open = false;
+      if(document.activeElement?.classList.contains('concept-knot')) {
+        const button = document.activeElement;
+        button.setAttribute('aria-expanded','false');
+        document.getElementById(button.getAttribute('aria-controls')).hidden = true;
+      }
+    }
+  });
+  function updateProgress() {
+    const distance = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (distance > 0 ? Math.min(100,Math.max(0,window.scrollY / distance * 100)) : 0) + '%';
+  }
+  window.addEventListener('scroll', () => { updateProgress(); closeTooltip(); }, {passive:true});
+  window.addEventListener('resize', () => { closeTooltip(); updateProgress(); }, {passive:true});
+  updateProgress();
+})();
+</script>
+</body>
+</html>
