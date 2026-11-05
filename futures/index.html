@@ -213,6 +213,11 @@
   .proof-item.stage .pn{font-family:'IBM Plex Mono',monospace;font-style:normal;font-size:0.82rem;width:44px;padding-top:4px;}
   .stage-year{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;font-weight:400;font-style:normal;letter-spacing:0.02em;color:var(--ink-faint);}
 
+  /* embedded exhibit */
+  .exhibit{max-width:640px;margin:32px 0 36px;border:1px solid var(--line-strong);background:var(--paper-dim);padding:18px;border-radius:2px;}
+  .exhibit img{display:block;width:100%;height:auto;border-radius:1px;}
+  .exhibit figcaption{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-faint);line-height:1.5;}
+
   /* close / colophon */
   .close{border-top:1px solid var(--line);padding-block:64px;}
   .close-grid{display:grid;grid-template-columns:1.3fr auto;gap:40px;align-items:start;}
@@ -722,6 +727,12 @@
       <div class="essay-body" style="max-width:100%;">
         <h2>An ecosystem ten years in the making</h2>
         <p>Dark Matter Labs didn't arrive at an ecosystem — it built toward one, in five stages, from an unlabelled starting point before 2018 to the ecosystem it runs today. Next Futures sits inside the current one.</p>
+
+        <figure class="exhibit">
+          <img src="dm-evolution.webp" alt="Diagram of Dark Matter Labs' evolution from an unlabelled Architecture 00 through DM01 Provocations, DM02 Missions and Projects, DM03 First Units and their Portfolios, and DM04 Matrix, to DM05: an ecosystem of mutually reinforcing initiatives, with spin-out initiatives and capital structuring radiating outward." loading="lazy">
+          <figcaption>Dark Matter Labs' own map of this evolution — Next Futures is the capital-structuring half of DM05</figcaption>
+        </figure>
+
         <div class="proof-list">
           <div class="proof-item stage">
             <span class="pn mono">DM01</span>
