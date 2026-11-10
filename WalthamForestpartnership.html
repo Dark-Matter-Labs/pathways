@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="A proposal to Waltham Forest Council: reviving their food strategy and a first-stage partnership with Dark Matter Labs.">
+<title>Waltham Forest Food Partnership</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..600;1,9..144,400..500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F7F5EF; --paper-2:#EFEAE0; --ink:#2A2419; --ink-2:#5C5343; --ink-3:#8C8370;
+  --line:#DDD5C4; --line-strong:#BBB097;
+  --gold:#A8762A; --gold-tint:#F0E2C4; --moss:#47543B; --moss-tint:#E2E7D9;
+  --display:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,-apple-system,"Segoe UI",sans-serif; --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#1B1811; --paper-2:#242018; --ink:#F2EDE1; --ink-2:#C7BEAB; --ink-3:#8E8572;
+  --line:#38332A; --line-strong:#4E4737; --gold:#D6A54E; --gold-tint:#3A2D17; --moss:#8CA074; --moss-tint:#293021; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#1B1811; --paper-2:#242018; --ink:#F2EDE1; --ink-2:#C7BEAB; --ink-3:#8E8572;
+  --line:#38332A; --line-strong:#4E4737; --gold:#D6A54E; --gold-tint:#3A2D17; --moss:#8CA074; --moss-tint:#293021; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:70px}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+.draft-banner{position:fixed;top:0;left:0;right:0;z-index:60;background:var(--gold-tint);color:var(--gold);text-align:center;font:600 11px/1.6 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:9px 16px}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.hero{padding-block:86px 34px}
+.kicker{font:600 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+h1{font:460 clamp(34px,6vw,50px)/1.08 var(--display);letter-spacing:-.01em;margin:16px 0 0;text-wrap:balance;color:var(--ink)}
+h1 em{font-style:italic;font-weight:440;color:var(--moss)}
+.dateline{margin:18px 0 0;font-size:13.5px;color:var(--ink-3)}
+.epigraph{margin:30px 0 0;padding-left:18px;border-left:2px solid var(--gold);font:italic 400 19px/1.5 var(--display);color:var(--ink-2);max-width:52ch}
+.epigraph cite{display:block;margin-top:8px;font:500 12px/1 var(--sans);font-style:normal;color:var(--ink-3)}
+section{padding-block:34px;border-top:1px solid var(--line)}
+section.first{border-top:none}
+h2{font:460 26px/1.2 var(--display);letter-spacing:-.005em;margin:0 0 14px;color:var(--ink)}
+p{margin:0 0 14px;max-width:62ch;color:var(--ink-2)}
+p:last-child{margin-bottom:0}
+.lede{font-size:17px;color:var(--ink);max-width:58ch}
+ul.plain{margin:0 0 14px;padding-left:0;list-style:none;display:grid;gap:12px;max-width:62ch}
+ul.plain li{padding-left:22px;position:relative;color:var(--ink-2)}
+ul.plain li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:2px;background:var(--gold)}
+ul.plain b{color:var(--ink)}
+.vision{background:var(--moss-tint);border-radius:4px 16px 4px 16px;padding:28px 30px}
+.vision h2{color:var(--moss)}
+.ask{background:var(--paper-2);border:1px solid var(--line-strong);border-radius:4px 16px 4px 16px;padding:30px 32px}
+.figures{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:22px 0 24px}
+.fig{min-width:0}
+.fig b{display:block;font:500 clamp(22px,4vw,30px)/1 var(--mono);font-variant-numeric:tabular-nums;color:var(--ink);letter-spacing:-.01em}
+.fig span{display:block;margin-top:6px;font-size:12.5px;color:var(--ink-3)}
+.deliv{margin:0;padding-left:0;list-style:none;display:grid;gap:12px}
+.deliv li{padding-left:34px;position:relative;font-size:14.5px;color:var(--ink-2)}
+.deliv li::before{content:"";position:absolute;left:0;top:1px;width:20px;height:20px;border:1px solid var(--line-strong);border-radius:3px}
+.deliv b{color:var(--ink)}
+.closing{padding-block:40px 60px}
+.closing p{font-size:15px}
+.sign{margin-top:26px;font:500 14px/1.5 var(--sans);color:var(--ink)}
+.sign span{display:block;font:400 12.5px var(--sans);color:var(--ink-3);margin-top:2px}
+@media(max-width:560px){.figures{grid-template-columns:1fr 1fr}.vision,.ask{padding:22px 20px}}
+@media print{.draft-banner{display:none}}
+</style>
+</head>
+<body>
+
+<div class="draft-banner">Draft proposal &middot; shared only by direct link &middot; not listed or indexed</div>
+
+<div class="wrap">
+
+<section class="hero first">
+  <span class="kicker">Dark Matter Labs &middot; for Sarah and Russell, London Borough of Waltham Forest</span>
+  <h1>Waltham Forest food partnership: <em>first stage</em></h1>
+  <p class="dateline">Following our call, 10 November 2026</p>
+  <p class="epigraph">&ldquo;Food's going to be on everybody's agenda by next summer, if it isn't already.&rdquo;
+    <cite>From our conversation, 10 Nov</cite>
+  </p>
+</section>
+
+<section>
+  <h2>Where things stand</h2>
+  <p class="lede">You're picking up the food brief at a real hinge point. Waltham Forest has a food strategy that's sat unlaunched for years, a strong community food network that's been doing the real work without the backing it deserves, and a council stretched thin enough that nothing extra gets done unless someone makes it their whole job for a while. None of that is unusual. What's unusual is the timing: after last summer's drought, farmers who looked after their soil are outperforming the ones who didn't, and more of them are switching by choice. Capital is going to move toward the food system over the next year, from government and from the market. The question for Waltham Forest is whether that money lands on the existing, extractive system, or on something you've already built the case for.</p>
+</section>
+
+<section>
+  <h2>What counts as radical is changing</h2>
+  <p>Most of what governs how people engage with the food system today was set by a world that no longer exists. AI, climate change, demographics and the cost of energy are all moving at once, fast enough that the assumptions everyone's been planning against don't hold anymore. That changes what counts as radical. This summer showed that farms built around looking after their soil were the ones whose economics and resilience actually held up. A food system that's organic, resilient, and weighted toward fruit and vegetables over meat is simply what the ground is already selecting for. Waltham Forest doesn't need to take a leap to get there. It needs to build for where things are already heading.</p>
+</section>
+
+<section class="vision">
+  <h2>The longer ambition</h2>
+  <p>We think London's boroughs, working together, can shift the collective buying power of a city behind the kind of food system worth inheriting: organic, regenerative, civic-led, resistant to the shocks that are coming rather than exposed to them. There's a rapidly growing movement of London boroughs stepping up to meet this moment, each building it from where they stand. Waltham Forest's starting point, an engaged community already doing this work and a political mandate to be bold about it, makes it one of the places this could move fastest next.</p>
+  <ul class="plain">
+    <li><b>Connect what already exists.</b> Good Food Shed, an organic wholesaler built for exactly this, is already doing at small scale close to what Waltham Forest's food system needs at larger scale. But it's one part of a far wider, genuinely brilliant set of organisations that have been pushing at this for twenty years and more. The starting point is real time spent listening to them, learning what they've already built, and moving from wherever they're ready to move, while creating the conditions for the work they've always wanted to do to finally happen at the scale it needs. When next year's civic energy arrives, as it will, this is where it gets signposted.</li>
+    <li><b>Start from the strategy you already have.</b> We'd use Waltham Forest's own action plan and food strategy as the way in, getting Dark Matter Labs properly up to speed on what's actually needed here. That means real time with the organisations who already hold the wisdom and the trust, earning and validating it rather than assuming it, then flipping over the assets and infrastructure we've already built for Camden to support Waltham Forest wherever that's the right fit.</li>
+    <li><b>Put someone on the ground.</b> That's the second stage, not this one. This first stage is where we work out the shape of that role: what it covers, and the right way to set it up. London's boroughs are at very different points on this, some with substantial food teams already, some with food partnerships at very different levels of autonomy, funding and coordination, so there's no single template to copy. The person might sit inside the council, be hired through a partner organisation, or sit with Dark Matter Labs. Whichever it is, the point is giving them real freedom to focus on nothing but the food system and serve it however it needs to mature.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>What we'd do first: the strategy</h2>
+  <p>Your existing food strategy doesn't need rewriting. It needs reviving: sharpened, made bolder, genuinely plant-forward in a way that matches a Green administration's own politics, and connected to the wider London picture rather than standing alone. We'd aim for a launch in February or March 2027, timed deliberately just ahead of next summer, so that when people in Waltham Forest want to get involved, there's already somewhere obvious for that energy to go.</p>
+</section>
+
+<section class="ask">
+  <h2>The proposal</h2>
+  <p>A first stage, small and specific, so we both have real clarity before deciding whether to go further.</p>
+  <div class="figures">
+    <div class="fig"><b>&pound;10,000</b><span>from Waltham Forest</span></div>
+    <div class="fig"><b>&pound;10,000</b><span>matched by Dark Matter Labs</span></div>
+    <div class="fig"><b>~10 weeks</b><span>delivery window</span></div>
+  </div>
+  <p style="font-size:13px;color:var(--ink-3);margin-top:-8px">Our match comes from Dark Matter Labs' own fund, backed by foundations who back it specifically because it de-risks places like this. Not an accounting trick, a genuine second half of the investment.</p>
+  <ul class="deliv" style="margin-top:20px">
+    <li><b>The strategy, launched and aligned.</b> Revived, sharpened, and explicitly tied into the London-wide play rather than standing alone, carrying Dark Matter Labs' own modelling on why the existing food system isn't fit for purpose, and why organic, plant-rich, soil-first farming is where it's actually heading, the water-retention case already proven in the field.</li>
+    <li><b>A rapid digital twin.</b> A cut-down version of Waltham Forest's own food system, built fast by reusing the methodology and infrastructure already built for Camden rather than starting from zero.</li>
+    <li><b>The portfolio, mapped.</b> Every organisation already doing this work in Waltham Forest, and where each one fits.</li>
+    <li><b>A brief for who comes next.</b> A clear case for the person Waltham Forest should hire to run this on the ground, relentlessly focused on nothing else, built directly from what this stage finds.</li>
+    <li><b>Civic volition, signposted.</b> The launched strategy used to connect people who want to get involved, their time, land, skills, with where they can actually help, not a document that sits on a shelf again.</li>
+    <li><b>The case for real capital.</b> A scoped-out answer to what Waltham Forest could do with a significant government deployment if and when it comes, so the offer beats what the supermarkets will put forward and builds civic infrastructure instead.</li>
+  </ul>
+</section>
+
+<section class="closing" style="border-top:1px solid var(--line)">
+  <p>This isn't a sales pitch. We're building a movement, and the places worth being in it with are the ones already doing the work, which is exactly what we saw on the call. Happy to talk through any of this whenever's useful.</p>
+  <div class="sign">Adam Purvis
+    <span>Dark Matter Labs &middot; food.darkmatterlabs.org</span>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
