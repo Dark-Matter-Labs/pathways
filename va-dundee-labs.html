@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Draft scope: three living labs extending V&amp;A Dundee&rsquo;s Design for Scotland Phase 3 proposal, developed with Dark Matter Labs.">
+<meta name="description" content="Draft scope: Design for Scotland as the underlying endeavour, with living labs in bioregioning and human futures as the way it meets the world. Developed with Dark Matter Labs.">
 <title>V&amp;A Dundee Living Labs</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -129,6 +129,21 @@ section.sources{background:transparent;padding:16px 64px 24px}
   .b-row{grid-template-columns:1fr;gap:2px}.b-head{display:none}
   .m-t{font-size:17px}.m-s{display:none}.m-s.m-keep{display:inline;font-size:12.5px}.m-h{font-size:17px}
 }
+/* layers */
+.layers{margin:30px 0 4px;max-width:none;display:grid;gap:10px;font-size:14px}
+.ly-world{border-top:2px dashed var(--line-strong);padding-top:10px;font:600 12px/1.4 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.ly-labs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.lb{padding:16px 18px;border-top:5px solid var(--a);background:var(--tb);display:flex;flex-direction:column;gap:4px;min-width:0}
+.lb span{font:600 11.5px/1.3 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--a)}
+.lb b{font:600 17px/1.25 var(--sans);color:var(--ink)}
+.lb small{font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+.lb2{--a:var(--moss);--tb:var(--t2)} .lb3{--a:var(--tay);--tb:var(--t3)}
+.lbf{--a:var(--ink-3);--tb:transparent;border:1.5px dashed var(--line-strong);border-top:5px dashed var(--line-strong)}
+.ly-base{background:var(--hero-bg);color:var(--hero-ink);padding:20px 22px;display:flex;flex-direction:column;gap:4px}
+.ly-base span{font:600 11.5px/1.3 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:#96C99C}
+.ly-base b{font:300 28px/1.15 var(--sans)}
+.ly-base small{font-size:14px;line-height:1.5;color:var(--hero-ink-2)}
+@media(max-width:760px){.ly-labs{grid-template-columns:1fr}.ly-base b{font-size:24px}}
 @media print{.site-head{position:static}.strip{display:none}}
 </style>
 </head>
@@ -150,8 +165,8 @@ section.sources{background:transparent;padding:16px 64px 24px}
 <div class="wrap">
 
 <section class="hero">
-  <span class="kicker">Draft scope &middot; building on Design for Scotland Phase 3</span>
-  <h1>Scoping three living labs <em>for the next ten years</em></h1>
+  <span class="kicker">Draft scope &middot; Design for Scotland living labs</span>
+  <h1>Scoping living labs <em>for the next ten years</em></h1>
   <p class="dateline">Prepared for V&amp;A Dundee by Dark Matter Labs &middot; November 2026 &middot; For discussion</p>
   <blockquote class="epigraph">&ldquo;A schoolroom for everyone.&rdquo;
     <cite>Henry Cole, first Director of the V&amp;A, on the museum&rsquo;s purpose</cite></blockquote>
@@ -159,83 +174,51 @@ section.sources{background:transparent;padding:16px 64px 24px}
 
 <section>
   <h2>Purpose of this scope</h2>
-  <p class="lede">V&amp;A Dundee&rsquo;s Phase 3 proposal for Design for Scotland sets out a National Design Lab at V&amp;A Dundee, tested through a 12-month pilot and three design missions. This scope builds directly on that proposal.</p>
-  <p>It suggests that each of the three missions can grow into a living lab with its own partners, funding and ten-year purpose. It also suggests one shift in emphasis: that each lab starts from live work in a named place, with the people and organisations already doing that work, and builds its evidence from what changes there.</p>
-  <p>Dark Matter Labs would develop the three labs in partnership with V&amp;A Dundee, drawing on its experience of building a family of labs and on work already under way in Tayside.</p>
-  <figure class="map" aria-labelledby="map-cap">
-    <svg viewBox="0 0 480 330" role="img" aria-label="The National Design Lab at V&amp;A Dundee at the centre, linked to three labs: Design for Scotland, Scotland Bioregioning and Human Futures. The bioregioning lab has a dashed link to Eden Project Dundee, which is still to be built.">
-      <line class="m-line" x1="240" y1="165" x2="100" y2="80"/>
-      <line class="m-line" x1="240" y1="165" x2="380" y2="80"/>
-      <line class="m-line" x1="240" y1="165" x2="240" y2="262"/>
-      <line class="m-dash" x1="380" y1="80" x2="405" y2="232"/>
-      <circle class="m-hub" cx="240" cy="165" r="62"/>
-      <text class="m-h" x="240" y="155" text-anchor="middle">National</text><text class="m-h" x="240" y="175" text-anchor="middle">Design Lab</text>
-      <text class="m-s m-keep" x="240" y="194" text-anchor="middle">V&amp;A Dundee</text>
-      <circle cx="100" cy="80" r="10" fill="var(--gold)"/>
-      <text class="m-t" x="100" y="38" text-anchor="middle">Design for Scotland Lab</text>
-      <text class="m-s" x="100" y="56" text-anchor="middle">Design + Government</text>
-      <circle cx="380" cy="80" r="10" fill="var(--moss)"/>
-      <text class="m-t" x="380" y="38" text-anchor="middle">Bioregioning Lab</text>
-      <text class="m-s" x="380" y="56" text-anchor="middle">Design + Economy</text>
-      <circle cx="240" cy="262" r="10" fill="var(--tay)"/>
-      <text class="m-t" x="240" y="296" text-anchor="middle">Human Futures Lab</text>
-      <text class="m-s" x="240" y="314" text-anchor="middle">Design + Future Skills</text>
-      <circle cx="405" cy="232" r="8" fill="none" stroke="var(--moss)" stroke-width="1.5" stroke-dasharray="3 3"/>
-      <text class="m-t m-eden" x="405" y="266" text-anchor="middle">Eden Dundee</text>
-      <text class="m-s m-keep" x="405" y="283" text-anchor="middle">to come</text>
-    </svg>
-    <figcaption id="map-cap">The three Phase 3 missions as three living labs within the National Design Lab, with a future link to Eden Project Dundee.</figcaption>
-  </figure>
-</section>
+  <p class="lede">Design for Scotland is the underlying endeavour. Living labs are the mechanism through which it meets the world.</p>
+  <p>This scope builds on V&amp;A Dundee&rsquo;s Phase 3 proposal for Design for Scotland and on recent conversations between V&amp;A Dundee and Dark Matter Labs. It proposes that Design for Scotland forms the base layer: the philosophy, evidence, networks and advocacy built over four years, and the long-term case for a National Design Policy.</p>
+  <p>On that foundation, V&amp;A Dundee would open a series of living labs. Each lab takes the endeavour into a specific place and question that matters now, works with the people already there, and brings what it learns back into the base layer. Labs open as new needs emerge and close when their work is complete. The endeavour itself continues, and stays relevant because its labs follow what the world needs at any given moment.</p>
+  <p>Two labs are proposed to begin: a <b>Scotland Bioregioning Lab</b> and a <b>Human Futures Lab</b>. Dark Matter Labs would develop both in partnership with V&amp;A Dundee.</p>
 
-<section>
-  <h2>What Phase 3 already establishes</h2>
-  <p>The Phase 3 proposal makes a strong case. Four years of Design for Scotland have built the evidence, networks and national ambition for a more strategic approach to design. The proposal names the right pressures: AI and automation, strain on universities and cultural institutions, the agenda for public service reform, and the need for productive, sustainable growth. It places V&amp;A Dundee at the intersection of design, culture, research and industry, with a home in the UK&rsquo;s first UNESCO City of Design.</p>
-  <p>It also secures a regional base. Through Tay Create, the Tay Cities region&rsquo;s UKRI-backed innovation partnership worth up to &pound;20 million, V&amp;A Dundee will lead the design programme for creative technologies. The National Design Lab is intended to extend that work across Scotland.</p>
-  <p>The three missions map closely onto the three labs proposed here:</p>
-  <div class="bridge" role="table" aria-label="Phase 3 missions and the living labs that extend them">
-    <div class="b-row b-head" role="row"><span role="columnheader">Phase 3 mission</span><span role="columnheader">Living lab</span><span role="columnheader">Grounded in</span></div>
-    <div class="b-row" role="row"><span role="cell"><b>Design + Government</b></span><span role="cell" class="c1">Design for Scotland Lab</span><span role="cell">Live decisions held by councils and public bodies</span></div>
-    <div class="b-row" role="row"><span role="cell"><b>Design + Economy</b></span><span role="cell" class="c2">Scotland Bioregioning Lab</span><span role="cell">Regeneration projects across Tayside and other Scottish bioregions</span></div>
-    <div class="b-row" role="row"><span role="cell"><b>Design + Future Skills</b></span><span role="cell" class="c3">Human Futures Lab</span><span role="cell">Dundee&rsquo;s people and institutions as the city adapts to AI and contraction</span></div>
+  <div class="layers" role="img" aria-label="Design for Scotland as the base layer at V&amp;A Dundee. Above it sit the Scotland Bioregioning Lab, the Human Futures Lab and space for future labs. Above the labs is the world: live needs, real places and real people.">
+    <div class="ly-world">Where the work meets the world &middot; live needs, real places, real people</div>
+    <div class="ly-labs">
+      <div class="lb lb2"><span>Lab one</span><b>Scotland Bioregioning Lab</b><small>Tayside first, then Scotland&rsquo;s bioregions. Eden Project Dundee to come.</small></div>
+      <div class="lb lb3"><span>Lab two</span><b>Human Futures Lab</b><small>Dundee&rsquo;s people and the age of AI.</small></div>
+      <div class="lb lbf"><span>Future labs</span><b>Opened as needs arise</b><small>Closed when their work is complete.</small></div>
+    </div>
+    <div class="ly-base"><span>The underlying endeavour &middot; V&amp;A Dundee</span><b>Design for Scotland</b><small>Philosophy and method &middot; evidence &middot; network &middot; advocacy for a National Design Policy &middot; investment in Scotland&rsquo;s designers</small></div>
   </div>
 </section>
 
 <section>
-  <h2>From applying research to working in place</h2>
-  <p>As drafted, the missions are framed as applying design research to Scotland&rsquo;s shared challenges. That framing suits advocacy and policy. Funders, councils and communities are more often persuaded by visible change in places they know. We suggest four principles to strengthen the pilot:</p>
+  <h2>Design for Scotland as the base layer</h2>
+  <p>The Phase 3 proposal makes a strong case. Four years of Design for Scotland have built the evidence, networks and national ambition for a more strategic approach to design. The proposal names the right pressures: AI and automation, strain on universities and cultural institutions, and the need for productive, sustainable growth. It places V&amp;A Dundee at the intersection of design, culture, research and industry, with a home in the UK&rsquo;s first UNESCO City of Design.</p>
+  <p>It also secures a regional base. Through Tay Create, the Tay Cities region&rsquo;s UKRI-backed innovation partnership worth up to &pound;20 million, V&amp;A Dundee will lead the design programme for creative technologies.</p>
+  <p>In this model, the base layer holds what stays constant across every lab:</p>
   <ul class="plain">
-    <li><b>Start from a live decision.</b> Each piece of work begins with a decision or project that already has an owner, a deadline and the power to act.</li>
-    <li><b>Work with those already doing it.</b> The labs join existing efforts, such as Bioregioning Tayside, and add design capacity to them.</li>
-    <li><b>Pay for work on the ground.</b> Phase 3&rsquo;s commitment to paid commissions and placements is its strongest feature. We suggest attaching each commission to a real project with a named partner.</li>
-    <li><b>Return and record.</b> Each lab revisits its work after three and six months, and records what changed. That record becomes the evidence base for a National Design Policy.</li>
+    <li><b>Philosophy and method.</b> Design as a national capability for understanding complex problems, bringing different voices together and testing possibilities before committing resources.</li>
+    <li><b>Network.</b> The designers, art schools, universities, industry partners and creative communities that Design for Scotland has gathered.</li>
+    <li><b>Advocacy.</b> The case for a National Design Policy for Scotland, increasingly evidenced by what the labs achieve.</li>
+    <li><b>Investment in designers.</b> Paid commissions, residencies and placements that put money directly into Scotland&rsquo;s design sector.</li>
+  </ul>
+  <p>The first two labs carry forward Phase 3&rsquo;s commitments to the design economy and to future skills, and give each a place where it can be seen working.</p>
+</section>
+
+<section>
+  <h2>How the labs work</h2>
+  <p>As drafted, Phase 3 frames its work as applying design research to Scotland&rsquo;s shared challenges. That framing suits advocacy and policy. Funders, partners and communities are more often persuaded by visible change in places they know. The labs would follow six principles:</p>
+  <ul class="plain">
+    <li><b>Start from a live need.</b> Each lab begins with a need that is pressing now, in a named place, with people already working on it.</li>
+    <li><b>Work with those already doing it.</b> Labs join existing efforts, such as Bioregioning Tayside, and add design capacity to them.</li>
+    <li><b>Pay for work on the ground.</b> Each paid commission is attached to a real project with a named partner.</li>
+    <li><b>Return and record.</b> Labs revisit their work after three and six months and record what changed. That record flows back into the base layer as evidence.</li>
+    <li><b>Open and close with need.</b> Each lab has a defined purpose and a review point. When the need shifts, the lab adapts or closes, and new labs can open.</li>
+    <li><b>Share people.</b> A small core team, fixed-term tenures from partner organisations, and student placements from art schools across Scotland, Wales, Ireland and England, all able to move between labs.</li>
   </ul>
 </section>
 
-<section class="lab l1">
-    <span class="num">Lab one &middot; extends Design + Government</span>
-    <h2>Design for Scotland Lab</h2>
-    <p><b>Purpose:</b> to give Scotland&rsquo;s public bodies high-quality design and strategic thinking capacity at the moments when they make significant decisions.</p>
-    <h3>Context</h3>
-    <p>Phase 3 proposes embedding designers in government and public services. Councils and public bodies hold real levers over land, procurement, planning and services, yet have very little financial headroom. Public sector leaders consistently identify the lack of time for considered thinking as the greatest constraint on good decision-making.</p>
-    <h3>Proposed model</h3>
-    <ul class="plain">
-      <li><b>Core team.</b> A standing, multidisciplinary team spanning design, systems thinking, economics and public service.</li>
-      <li><b>Fixed-term tenures.</b> Practitioners join from partner companies, public bodies and practice for a defined period. These are the embedded placements Phase 3 describes.</li>
-      <li><b>Student placements.</b> Periodic placements for students from partner art schools across Scotland, Wales, Ireland and England.</li>
-      <li><b>Sprint programme.</b> Two-week sprints with public bodies, growing to approximately 20 a year.</li>
-    </ul>
-    <h3>Grounded in practice</h3>
-    <p>A public body qualifies for a sprint when it brings a decision it must make within six months and a senior owner who commits to act on the result. The pilot would run its first sprints with Tayside public bodies, alongside the Tay Create programme. Each sprint ends with an agreed course of action, and the team returns at three and six months to record what happened.</p>
-    <dl class="facts">
-      <div><dt>Resourcing</dt><dd>A pooled fund from philanthropy, with private organisations contributing staff time each year.</dd></div>
-      <div><dt>Partners</dt><dd>Local authorities, health boards, agencies and other public bodies across Scotland.</dd></div>
-      <div><dt>Evidence of success</dt><dd>Decisions made and acted on, and public servants who continue to use design methods.</dd></div>
-    </dl>
-</section>
-
 <section class="lab l2">
-    <span class="num">Lab two &middot; extends Design + Economy</span>
+    <span class="num">Lab one</span>
     <h2>Scotland Bioregioning Lab</h2>
     <p><b>Purpose:</b> to put design to work in the economy of Scotland&rsquo;s places, and to give the bioregioning movement shared capacity to sense need, coordinate activity and share learning.</p>
     <h3>Context</h3>
@@ -259,7 +242,7 @@ section.sources{background:transparent;padding:16px 64px 24px}
 </section>
 
 <section class="lab l3">
-    <span class="num">Lab three &middot; extends Design + Future Skills</span>
+    <span class="num">Lab two</span>
     <h2>Human Futures Lab</h2>
     <p><b>Purpose:</b> to explore what it means to be human in an age shaped by AI, and to help Dundee&rsquo;s people find new and thriving roles.</p>
     <h3>Context</h3>
@@ -282,22 +265,22 @@ section.sources{background:transparent;padding:16px 64px 24px}
 
 <section>
   <h2>How this shapes the 12-month pilot</h2>
-  <p>The Phase 3 pilot structure holds. The suggested changes sit within each stage.</p>
+  <p>The Phase 3 pilot structure holds. The two labs become the focus of the pilot&rsquo;s practical work.</p>
   <ol class="steps">
-    <li><b>Establish the National Design Lab &middot; months 1&ndash;3.</b> In addition to the advisory group and partner mapping, agree the places, partners and live decisions each mission will work on.</li>
-    <li><b>Run three design missions &middot; months 3&ndash;9.</b> Run each mission as a lab in waiting: public sector sprints, commissions with Tayside regeneration projects, and open studios in Dundee.</li>
-    <li><b>Convene a National Design Summit &middot; months 9&ndash;10.</b> Present the work through the councils, projects and people involved, so that the case for a National Design Policy rests on visible results.</li>
-    <li><b>Build the next three to five years &middot; months 10&ndash;12.</b> Within the strategy, prepare a business case for each lab with its own funders, so that the National Design Lab grows as a family of labs with several sources of support.</li>
+    <li><b>Establish the base layer and lab model &middot; months 1&ndash;3.</b> Alongside the advisory group and partner mapping, agree the places, partners and live needs each of the first two labs will work on.</li>
+    <li><b>Open the first two labs &middot; months 3&ndash;9.</b> Paid commissions with Tayside regeneration projects, and open studios and role prototypes in Dundee.</li>
+    <li><b>Convene a National Design Summit &middot; months 9&ndash;10.</b> Present the work through the projects and people involved, so that the case for a National Design Policy rests on visible results.</li>
+    <li><b>Build the next three to five years &middot; months 10&ndash;12.</b> A strategy for Design for Scotland as the base layer, a business case for each lab with its own funders, and a process for opening further labs as new needs emerge.</li>
   </ol>
 </section>
 
 <section>
-  <h2>Why a family of labs</h2>
-  <p>Dark Matter Labs has grown as a group of labs, each with its own mission, funders and partners, supported by shared people, methods and back-office functions. The same model would serve the National Design Lab well:</p>
+  <h2>Why this structure</h2>
+  <p>Dark Matter Labs has grown as a family of labs, each with its own mission, funders and partners, supported by shared people, methods and back-office functions. The same structure would serve Design for Scotland well:</p>
   <ul class="plain">
+    <li><b>Relevance.</b> Labs follow what is needed now. The endeavour stays current without changing its foundations.</li>
     <li><b>Resilience.</b> No single funding stream carries the whole programme, matching the blended funding approach Phase 3 already proposes.</li>
-    <li><b>Focus.</b> Each lab is accountable to a clear mission and to its own funders.</li>
-    <li><b>Shared people.</b> Tenure holders and students work across labs, and a question found in one can be followed in another.</li>
+    <li><b>Focus.</b> Each lab is accountable to a clear purpose and to its own funders.</li>
     <li><b>Public engagement.</b> V&amp;A Dundee makes the work visible through exhibitions, events and the building itself.</li>
   </ul>
 </section>
@@ -306,8 +289,8 @@ section.sources{background:transparent;padding:16px 64px 24px}
     <h2>Proposed next steps</h2>
     <ol class="steps">
       <li><b>Working session.</b> A half-day in Dundee with V&amp;A Dundee and Dark Matter Labs to test this scope against the Phase 3 proposal.</li>
-      <li><b>Partners on the ground.</b> Early conversations with Bioregioning Tayside, one or two Tayside public bodies and the Tay Create partners.</li>
-      <li><b>Lab briefs.</b> A short brief for each lab covering purpose, resourcing, partners and first-year work, to support the pilot and later funding conversations.</li>
+      <li><b>Partners on the ground.</b> Early conversations with Bioregioning Tayside, the Tay Create partners, and Dundee employers and colleges.</li>
+      <li><b>Lab briefs.</b> A short brief for each of the first two labs covering purpose, resourcing, partners and first-year work, to support the pilot and later funding conversations.</li>
       <li><b>Early engagement with Eden.</b> Open the bioregioning conversation with the Eden Project team and its backers while the relationship is still forming.</li>
     </ol>
 </section>
